@@ -131,6 +131,14 @@ public class JesonMor extends Game {
      */
     public void updateScore(Player player, Piece piece, Move move) {
         // TODO student implementation
+        var originalx = move.getSource().x();
+        var originaly = move.getSource().y();
+        var destinationx = move.getDestination().x();
+        var destinationy = move.getDestination().y();
+
+        var movescore = Math.abs((originalx-destinationx)) + Math.abs((originaly-destinationy));
+        var newscore = player.getScore() + movescore;
+        player.setScore(newscore);
     }
 
 
