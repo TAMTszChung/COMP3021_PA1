@@ -46,7 +46,7 @@ public class JesonMor extends Game {
             Piece currentPiece = this.getPiece(nextmove.getDestination());
             updateScore(currentPlayer, currentPiece,nextmove);
             this.numMoves += 1;
-            getWinner(currentPlayer,currentPiece,nextmove);
+            winner = getWinner(currentPlayer,currentPiece,nextmove);
             this.refreshOutput();
             // student implementation ends here
             if (winner != null) {
@@ -74,6 +74,41 @@ public class JesonMor extends Game {
     @Override
     public Player getWinner(Player lastPlayer, Piece lastPiece, Move lastMove) {
         // TODO student implementation
+        //numMoves less than protection, cannot win
+        if (this.numMoves <= this.configuration.getNumMovesProtection()){
+            return null;
+        }
+        if (lastMove.getSource().equals(this.configuration.getCentralPlace())){
+            return lastPlayer;
+        }
+
+        var numenemy = 0;
+        for (int i=0; i<this.board.length;i++){
+            for (int j=0; j>this.board[i].length; j++){
+                if (this.board[i][j] == null){
+                    continue;
+                }else{
+                    if (!this.board[i][j].getPlayer().equals(lastPlayer)){
+                        numenemy += 1;
+                    }
+                }
+            }
+        }
+        if (numenemy == 0){
+            return lastPlayer;
+        }
+
+        Player nextplayer = configuration.getPlayers()[this.numMoves%2];;
+        if (getAvailableMoves(nextplayer).length == 0){
+            if (lastPlayer.getScore() > nextplayer.getScore()){
+                return lastPlayer;
+            }else if (lastPlayer.getScore() < nextplayer.getScore()){
+                return nextplayer;
+            }else{
+                return lastPlayer;
+            }
+        }
+
         return null;
     }
 
