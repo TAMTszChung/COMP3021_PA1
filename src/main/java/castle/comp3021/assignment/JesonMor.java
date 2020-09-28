@@ -40,7 +40,11 @@ public class JesonMor extends Game {
         this.refreshOutput();
         while (true) {
             // TODO student implementation starts here
-
+            this.currentPlayer = configuration.getPlayers()[this.numMoves%2];
+            Move nextmove = this.currentPlayer.nextMove(this, getAvailableMoves(currentPlayer));
+            movePiece(nextmove);
+            updateScore(currentPlayer, this.getPiece(nextmove.getDestination()),nextmove);
+            this.numMoves += 1;
             // student implementation ends here
             if (winner != null) {
                 System.out.println();
