@@ -159,6 +159,12 @@ public class JesonMor extends Game {
      */
     public void movePiece(@NotNull Move move) {
         // TODO student implementation
+        var originalx = move.getSource().x();
+        var originaly = move.getSource().y();
+        var destinationx = move.getDestination().x();
+        var destinationy = move.getDestination().y();
+
+        board[destinationx][destinationy] = board[originalx][originaly];
     }
 
     /**
