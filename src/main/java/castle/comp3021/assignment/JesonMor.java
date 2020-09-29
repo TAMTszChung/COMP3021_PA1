@@ -165,6 +165,7 @@ public class JesonMor extends Game {
         var destinationy = move.getDestination().y();
 
         board[destinationx][destinationy] = board[originalx][originaly];
+        board[originalx][originaly] = null;
     }
 
     /**
