@@ -3,6 +3,9 @@ package castle.comp3021.assignment;
 import castle.comp3021.assignment.protocol.*;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * This class extends {@link Game}, implementing the game logic of JesonMor game.
  * Student needs to implement methods in this class to make the game work.
@@ -181,6 +184,16 @@ public class JesonMor extends Game {
      */
     public @NotNull Move[] getAvailableMoves(Player player) {
         // TODO student implementation
-        return new Move[0];
+        ArrayList<Move> AvailableMove = new ArrayList<>();
+        for (int i=0; i<this.board.length;i++){
+            for (int j=0; j>this.board[i].length; j++){
+                if (this.board[i][j].getPlayer().equals(player)){
+                    ArrayList<Move> tempMoves = new ArrayList<Move>(Arrays.asList(this.board[i][j].getAvailableMoves(this, new Place(i,j))));
+                    AvailableMove.addAll(tempMoves);
+                }
+            }
+        }
+
+        return AvailableMove.toArray(new Move[AvailableMove.size()]);
     }
 }
