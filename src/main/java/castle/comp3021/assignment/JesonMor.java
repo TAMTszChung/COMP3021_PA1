@@ -77,6 +77,22 @@ public class JesonMor extends Game {
     @Override
     public Player getWinner(Player lastPlayer, Piece lastPiece, Move lastMove) {
         // TODO student implementation
+        var numenemy = 0;
+        for (int i=0; i<this.board.length;i++){
+            for (int j=0; j>this.board[i].length; j++){
+                if (this.board[i][j] == null){
+                    continue;
+                }else{
+                    if (!this.board[i][j].getPlayer().equals(lastPlayer)){
+                        numenemy += 1;
+                    }
+                }
+            }
+        }
+        if (numenemy == 0){
+            return lastPlayer;
+        }
+
         Player nextplayer = configuration.getPlayers()[this.numMoves%2];;
         if (getAvailableMoves(nextplayer).length == 0){
             if (lastPlayer.getScore() > nextplayer.getScore()){
@@ -94,22 +110,6 @@ public class JesonMor extends Game {
         }
         //win by: leaving central place
         if (lastMove.getSource().equals(this.configuration.getCentralPlace())){
-            return lastPlayer;
-        }
-
-        var numenemy = 0;
-        for (int i=0; i<this.board.length;i++){
-            for (int j=0; j>this.board[i].length; j++){
-                if (this.board[i][j] == null){
-                    continue;
-                }else{
-                    if (!this.board[i][j].getPlayer().equals(lastPlayer)){
-                        numenemy += 1;
-                    }
-                }
-            }
-        }
-        if (numenemy == 0){
             return lastPlayer;
         }
         return null;
