@@ -63,7 +63,8 @@ public class Knight extends Piece {
                 AvailableMove.remove(i);
                 continue;
             }
-            if (game.getPiece(destinationx,destinationy).getPlayer().equals(game.getCurrentPlayer())){
+            if (game.getPiece(destinationx,destinationy) != null
+                    && game.getPiece(destinationx,destinationy).getPlayer().equals(game.getCurrentPlayer())){
                 AvailableMove.remove(i);
                 continue;
             }
