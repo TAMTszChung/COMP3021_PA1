@@ -6,6 +6,8 @@ import castle.comp3021.assignment.protocol.Piece;
 import castle.comp3021.assignment.protocol.Place;
 import castle.comp3021.assignment.protocol.Player;
 
+import java.util.ArrayList;
+
 /**
  * Knight piece that moves similar to knight in chess.
  * Rules of move of Knight can be found in wikipedia (https://en.wikipedia.org/wiki/Knight_(chess)).
@@ -40,6 +42,52 @@ public class Knight extends Piece {
     @Override
     public Move[] getAvailableMoves(Game game, Place source) {
         // TODO student implementation
-        return new Move[0];
+        ArrayList<Move> AvailableMove = new ArrayList<>();
+        AvailableMove.add(new Move(source, new Place(source.x()+1, source.y()+2)));
+        AvailableMove.add(new Move(source, new Place(source.x()+2, source.y()+1)));
+        AvailableMove.add(new Move(source, new Place(source.x()+2, source.y()-1)));
+        AvailableMove.add(new Move(source, new Place(source.x()+1, source.y()-2)));
+        AvailableMove.add(new Move(source, new Place(source.x()-1, source.y()-2)));
+        AvailableMove.add(new Move(source, new Place(source.x()-2, source.y()-1)));
+        AvailableMove.add(new Move(source, new Place(source.x()-2, source.y()+1)));
+        AvailableMove.add(new Move(source, new Place(source.x()-1, source.y()+2)));
+
+        for (int i=AvailableMove.size()-1; i>=0;i--){
+            var originalx = AvailableMove.get(i).getSource().x();
+            var originaly = AvailableMove.get(i).getSource().y();
+            var destinationx = AvailableMove.get(i).getDestination().x();
+            var destinationy = AvailableMove.get(i).getDestination().y();
+
+            if (destinationx<0|| destinationy<0
+                    || destinationx>=game.getConfiguration().getSize() || destinationy>=game.getConfiguration().getSize()){
+                AvailableMove.remove(i);
+                continue;
+            }
+            if (game.getPiece(destinationx,destinationy).getPlayer().equals(game.getCurrentPlayer())){
+                AvailableMove.remove(i);
+                continue;
+            }
+            var Xshift = AvailableMove.get(i).getDestination().x() - AvailableMove.get(i).getSource().x();
+            var Yshift = AvailableMove.get(i).getDestination().y() - AvailableMove.get(i).getSource().y();
+            if (Math.abs(Xshift) == 2){
+                if (Xshift < 0){
+                    if (game.getPiece(originalx-1,originaly) != null)
+                        AvailableMove.remove(i);
+                }else{
+                    if (game.getPiece(originalx+1,originaly) != null)
+                        AvailableMove.remove(i);
+                }
+            }else{
+                if (Yshift < 0){
+                    if (game.getPiece(originalx,originaly-1) != null)
+                        AvailableMove.remove(i);
+                }else{
+                    if (game.getPiece(originalx,originaly+1) != null)
+                        AvailableMove.remove(i);
+                }
+            }
+        }
+
+        return AvailableMove.toArray(new Move[AvailableMove.size()]);
     }
 }
