@@ -77,10 +77,22 @@ public class JesonMor extends Game {
     @Override
     public Player getWinner(Player lastPlayer, Piece lastPiece, Move lastMove) {
         // TODO student implementation
+        Player nextplayer = configuration.getPlayers()[this.numMoves%2];;
+        if (getAvailableMoves(nextplayer).length == 0){
+            if (lastPlayer.getScore() > nextplayer.getScore()){
+                return lastPlayer;
+            }else if (lastPlayer.getScore() < nextplayer.getScore()){
+                return nextplayer;
+            }else{
+                return lastPlayer;
+            }
+        }
+
         //numMoves less than protection, cannot win
         if (this.numMoves <= this.configuration.getNumMovesProtection()){
             return null;
         }
+        //win by: leaving central place
         if (lastMove.getSource().equals(this.configuration.getCentralPlace())){
             return lastPlayer;
         }
@@ -100,18 +112,6 @@ public class JesonMor extends Game {
         if (numenemy == 0){
             return lastPlayer;
         }
-
-        Player nextplayer = configuration.getPlayers()[this.numMoves%2];;
-        if (getAvailableMoves(nextplayer).length == 0){
-            if (lastPlayer.getScore() > nextplayer.getScore()){
-                return lastPlayer;
-            }else if (lastPlayer.getScore() < nextplayer.getScore()){
-                return nextplayer;
-            }else{
-                return lastPlayer;
-            }
-        }
-
         return null;
     }
 
