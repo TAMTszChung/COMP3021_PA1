@@ -1,6 +1,5 @@
 package castle.comp3021.assignment.player;
 
-import castle.comp3021.assignment.piece.Archer;
 import castle.comp3021.assignment.piece.Knight;
 import castle.comp3021.assignment.protocol.*;
 import org.jetbrains.annotations.NotNull;
@@ -107,9 +106,9 @@ public class ConsolePlayer extends Player {
             }
 
             Move tempMove = new Move(inputsourceX,inputsourceY,inputdesX,inputdesY);
-            ArrayList<Move> Moves =
+            ArrayList<Move> availMoves =
                     new ArrayList<Move>(Arrays.asList(availableMoves));
-            if (!Moves.contains(tempMove)){
+            if (!availMoves.contains(tempMove)){
                 System.out.println("[Invalid Move]: please make a valid move");
                 continue;
             }
