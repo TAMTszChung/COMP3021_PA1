@@ -43,18 +43,25 @@ public class Knight extends Piece {
     public Move[] getAvailableMoves(Game game, Place source) {
         // TODO student implementation
         ArrayList<Move> AvailableMove = new ArrayList<>();
-        AvailableMove.add(new Move(source, new Place(source.x()+1, source.y()+2)));
-        AvailableMove.add(new Move(source, new Place(source.x()+2, source.y()+1)));
-        AvailableMove.add(new Move(source, new Place(source.x()+2, source.y()-1)));
-        AvailableMove.add(new Move(source, new Place(source.x()+1, source.y()-2)));
-        AvailableMove.add(new Move(source, new Place(source.x()-1, source.y()-2)));
-        AvailableMove.add(new Move(source, new Place(source.x()-2, source.y()-1)));
-        AvailableMove.add(new Move(source, new Place(source.x()-2, source.y()+1)));
-        AvailableMove.add(new Move(source, new Place(source.x()-1, source.y()+2)));
+        //checking horse leg condition to here
+        if (game.getPiece(source.x(),source.y()+1) == null){
+            AvailableMove.add(new Move(source, new Place(source.x()+1, source.y()+2)));
+            AvailableMove.add(new Move(source, new Place(source.x()-1, source.y()+2)));
+        }
+        if (game.getPiece(source.x(),source.y()-1) == null){
+            AvailableMove.add(new Move(source, new Place(source.x()+1, source.y()-2)));
+            AvailableMove.add(new Move(source, new Place(source.x()-1, source.y()-2)));
+        }
+        if (game.getPiece(source.x()+1,source.y()) == null){
+            AvailableMove.add(new Move(source, new Place(source.x()+2, source.y()+1)));
+            AvailableMove.add(new Move(source, new Place(source.x()+2, source.y()-1)));
+        }
+        if (game.getPiece(source.x()-1,source.y()+1) == null){
+            AvailableMove.add(new Move(source, new Place(source.x()-2, source.y()+1)));
+            AvailableMove.add(new Move(source, new Place(source.x()-2, source.y()-1)));
+        }
 
         for (int i=AvailableMove.size()-1; i>=0;i--){
-            var originalx = AvailableMove.get(i).getSource().x();
-            var originaly = AvailableMove.get(i).getSource().y();
             var destinationx = AvailableMove.get(i).getDestination().x();
             var destinationy = AvailableMove.get(i).getDestination().y();
 
@@ -63,29 +70,9 @@ public class Knight extends Piece {
                 AvailableMove.remove(i);
                 continue;
             }
-            if (game.getPiece(destinationx,destinationy) != null
-                    && game.getPiece(destinationx,destinationy).getPlayer().equals(game.getCurrentPlayer())){
+            if (game.getPiece(destinationx,destinationy) != null && game.getPiece(destinationx,destinationy).getPlayer().equals(game.getCurrentPlayer())){
                 AvailableMove.remove(i);
                 continue;
-            }
-            var Xshift = AvailableMove.get(i).getDestination().x() - AvailableMove.get(i).getSource().x();
-            var Yshift = AvailableMove.get(i).getDestination().y() - AvailableMove.get(i).getSource().y();
-            if (Math.abs(Xshift) == 2){
-                if (Xshift < 0){
-                    if (game.getPiece(originalx-1,originaly) != null)
-                        AvailableMove.remove(i);
-                }else{
-                    if (game.getPiece(originalx+1,originaly) != null)
-                        AvailableMove.remove(i);
-                }
-            }else{
-                if (Yshift < 0){
-                    if (game.getPiece(originalx,originaly-1) != null)
-                        AvailableMove.remove(i);
-                }else{
-                    if (game.getPiece(originalx,originaly+1) != null)
-                        AvailableMove.remove(i);
-                }
             }
         }
 
