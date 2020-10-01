@@ -45,22 +45,22 @@ public class Archer extends Piece {
     @Override
     public Move[] getAvailableMoves(Game game, Place source) {
         // TODO student implementation
-        ArrayList<Move> AvailableMove = new ArrayList<>();
+        ArrayList<Move> availableMove = new ArrayList<>();
         var originalx = source.x();
         var originaly = source.y();
         //right
-        var OtherPiece = 0;
+        var otherPiece = 0;
         for (int i=originalx+1; i<game.getConfiguration().getSize(); i++){
             if (game.getPiece(i,originaly) != null){
-                OtherPiece += 1;
+                otherPiece += 1;
             }
-            if (OtherPiece == 0){
-                AvailableMove.add(new Move(source, new Place(i, originaly)));
-            }else if(OtherPiece == 1){
+            if (otherPiece == 0){
+                availableMove.add(new Move(source, new Place(i, originaly)));
+            }else if(otherPiece == 1){
                 continue;
-            }else if(OtherPiece == 2){
+            }else if(otherPiece == 2){
                 if (game.getPiece(i,originaly) != null && !game.getPiece(i,originaly).getPlayer().equals(game.getCurrentPlayer())){
-                    AvailableMove.add(new Move(source, new Place(i, originaly)));
+                    availableMove.add(new Move(source, new Place(i, originaly)));
                 }
                 break;
             }else{
@@ -68,18 +68,18 @@ public class Archer extends Piece {
             }
         }
         //left
-        OtherPiece = 0;
+        otherPiece = 0;
         for (int i=originalx-1; i>=0; i--){
             if (game.getPiece(i,originaly) != null){
-                OtherPiece += 1;
+                otherPiece += 1;
             }
-            if (OtherPiece == 0){
-                AvailableMove.add(new Move(source, new Place(i, originaly)));
-            }else if(OtherPiece == 1){
+            if (otherPiece == 0){
+                availableMove.add(new Move(source, new Place(i, originaly)));
+            }else if(otherPiece == 1){
                 continue;
-            }else if(OtherPiece == 2){
+            }else if(otherPiece == 2){
                 if (game.getPiece(i,originaly) != null && !game.getPiece(i,originaly).getPlayer().equals(game.getCurrentPlayer())){
-                    AvailableMove.add(new Move(source, new Place(i, originaly)));
+                    availableMove.add(new Move(source, new Place(i, originaly)));
                 }
                 break;
             }else{
@@ -87,18 +87,18 @@ public class Archer extends Piece {
             }
         }
         //up
-        OtherPiece = 0;
+        otherPiece = 0;
         for (int i=originaly+1; i<game.getConfiguration().getSize(); i++){
             if (game.getPiece(originalx,i) != null){
-                OtherPiece += 1;
+                otherPiece += 1;
             }
-            if (OtherPiece == 0){
-                AvailableMove.add(new Move(source, new Place(originalx,i)));
-            }else if(OtherPiece == 1){
+            if (otherPiece == 0){
+                availableMove.add(new Move(source, new Place(originalx,i)));
+            }else if(otherPiece == 1){
                 continue;
-            }else if(OtherPiece == 2){
+            }else if(otherPiece == 2){
                 if (game.getPiece(originalx,i) != null && !game.getPiece(originalx,i).getPlayer().equals(game.getCurrentPlayer())){
-                    AvailableMove.add(new Move(source, new Place(originalx,i)));
+                    availableMove.add(new Move(source, new Place(originalx,i)));
                 }
                 break;
             }else{
@@ -106,24 +106,24 @@ public class Archer extends Piece {
             }
         }
         //down
-        OtherPiece = 0;
+        otherPiece = 0;
         for (int i=originaly-1; i>=0; i--){
             if (game.getPiece(originalx,i) != null){
-                OtherPiece += 1;
+                otherPiece += 1;
             }
-            if (OtherPiece == 0){
-                AvailableMove.add(new Move(source, new Place(originalx,i)));
-            }else if(OtherPiece == 1){
+            if (otherPiece == 0){
+                availableMove.add(new Move(source, new Place(originalx,i)));
+            }else if(otherPiece == 1){
                 continue;
-            }else if(OtherPiece == 2){
+            }else if(otherPiece == 2){
                 if (game.getPiece(originalx,i) != null && !game.getPiece(originalx,i).getPlayer().equals(game.getCurrentPlayer())){
-                    AvailableMove.add(new Move(source, new Place(originalx,i)));
+                    availableMove.add(new Move(source, new Place(originalx,i)));
                 }
                 break;
             }else{
                 break;
             }
         }
-        return AvailableMove.toArray(new Move[AvailableMove.size()]);
+        return availableMove.toArray(new Move[availableMove.size()]);
     }
 }

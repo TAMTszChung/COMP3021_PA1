@@ -44,53 +44,53 @@ public class Knight extends Piece {
         // TODO student implementation
         var sourceX = source.x();
         var sourceY = source.y();
-        ArrayList<Move> AvailableMove = new ArrayList<>();
-        AvailableMove.add(new Move(source, new Place(sourceX+1, sourceY+2)));
-        AvailableMove.add(new Move(source, new Place(sourceX+2, sourceY+1)));
-        AvailableMove.add(new Move(source, new Place(sourceX+2, sourceY-1)));
-        AvailableMove.add(new Move(source, new Place(sourceX+1, sourceY-2)));
-        AvailableMove.add(new Move(source, new Place(sourceX-1, sourceY-2)));
-        AvailableMove.add(new Move(source, new Place(sourceX-2, sourceY-1)));
-        AvailableMove.add(new Move(source, new Place(sourceX-2, sourceY+1)));
-        AvailableMove.add(new Move(source, new Place(sourceX-1, sourceY+2)));
+        ArrayList<Move> availableMove = new ArrayList<>();
+        availableMove.add(new Move(source, new Place(sourceX+1, sourceY+2)));
+        availableMove.add(new Move(source, new Place(sourceX+2, sourceY+1)));
+        availableMove.add(new Move(source, new Place(sourceX+2, sourceY-1)));
+        availableMove.add(new Move(source, new Place(sourceX+1, sourceY-2)));
+        availableMove.add(new Move(source, new Place(sourceX-1, sourceY-2)));
+        availableMove.add(new Move(source, new Place(sourceX-2, sourceY-1)));
+        availableMove.add(new Move(source, new Place(sourceX-2, sourceY+1)));
+        availableMove.add(new Move(source, new Place(sourceX-1, sourceY+2)));
 
-        for (int i=AvailableMove.size()-1; i>=0;i--){
-            var originalx = AvailableMove.get(i).getSource().x();
-            var originaly = AvailableMove.get(i).getSource().y();
-            var destinationx = AvailableMove.get(i).getDestination().x();
-            var destinationy = AvailableMove.get(i).getDestination().y();
+        for (int i=availableMove.size()-1; i>=0;i--){
+            var originalx = availableMove.get(i).getSource().x();
+            var originaly = availableMove.get(i).getSource().y();
+            var destinationx = availableMove.get(i).getDestination().x();
+            var destinationy = availableMove.get(i).getDestination().y();
 
             if (destinationx<0|| destinationy<0
                     || destinationx>=game.getConfiguration().getSize() || destinationy>=game.getConfiguration().getSize()){
-                AvailableMove.remove(i);
+                availableMove.remove(i);
                 continue;
             }
             if (game.getPiece(destinationx,destinationy) != null
                     && game.getPiece(destinationx,destinationy).getPlayer().equals(game.getCurrentPlayer())){
-                AvailableMove.remove(i);
+                availableMove.remove(i);
                 continue;
             }
-            var Xshift = AvailableMove.get(i).getDestination().x() - AvailableMove.get(i).getSource().x();
-            var Yshift = AvailableMove.get(i).getDestination().y() - AvailableMove.get(i).getSource().y();
-            if (Math.abs(Xshift) == 2){
-                if (Xshift < 0){
+            var xShift = availableMove.get(i).getDestination().x() - availableMove.get(i).getSource().x();
+            var yShift = availableMove.get(i).getDestination().y() - availableMove.get(i).getSource().y();
+            if (Math.abs(xShift) == 2){
+                if (xShift < 0){
                     if (game.getPiece(originalx-1,originaly) != null)
-                        AvailableMove.remove(i);
+                        availableMove.remove(i);
                 }else{
                     if (game.getPiece(originalx+1,originaly) != null)
-                        AvailableMove.remove(i);
+                        availableMove.remove(i);
                 }
             }else{
-                if (Yshift < 0){
+                if (yShift < 0){
                     if (game.getPiece(originalx,originaly-1) != null)
-                        AvailableMove.remove(i);
+                        availableMove.remove(i);
                 }else{
                     if (game.getPiece(originalx,originaly+1) != null)
-                        AvailableMove.remove(i);
+                        availableMove.remove(i);
                 }
             }
         }
 
-        return AvailableMove.toArray(new Move[AvailableMove.size()]);
+        return availableMove.toArray(new Move[availableMove.size()]);
     }
 }

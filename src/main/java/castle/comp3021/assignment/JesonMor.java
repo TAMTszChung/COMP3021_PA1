@@ -93,7 +93,7 @@ public class JesonMor extends Game {
             return lastPlayer;
         }
 
-        Player nextplayer = configuration.getPlayers()[this.numMoves%2];;
+        Player nextplayer = configuration.getPlayers()[this.numMoves%2];
         if (getAvailableMoves(nextplayer).length == 0){
             if (lastPlayer.getScore() > nextplayer.getScore()){
                 return lastPlayer;
@@ -184,16 +184,17 @@ public class JesonMor extends Game {
      */
     public @NotNull Move[] getAvailableMoves(Player player) {
         // TODO student implementation
-        ArrayList<Move> AvailableMove = new ArrayList<>();
+        ArrayList<Move> availableMove = new ArrayList<>();
         for (int i=0; i<this.board.length;i++){
             for (int j=0; j>this.board[i].length; j++){
                 if (this.board[i][j].getPlayer().equals(player)){
-                    ArrayList<Move> tempMoves = new ArrayList<Move>(Arrays.asList(this.board[i][j].getAvailableMoves(this, new Place(i,j))));
-                    AvailableMove.addAll(tempMoves);
+                    ArrayList<Move> tempMoves =
+                            new ArrayList<Move>(Arrays.asList(this.board[i][j].getAvailableMoves(this, new Place(i,j))));
+                    availableMove.addAll(tempMoves);
                 }
             }
         }
 
-        return AvailableMove.toArray(new Move[AvailableMove.size()]);
+        return availableMove.toArray(new Move[availableMove.size()]);
     }
 }
