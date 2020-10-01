@@ -127,7 +127,7 @@
       <recent name="$PROJECT_DIR$/src/main" />
     </key>
   </component>
-  <component name="RunManager" selected="JAR Application.PA1_obfuscated.jar">
+  <component name="RunManager" selected="JUnit.KnightTests">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="castle.comp3021.assignment.Main" />
       <module name="COMP3021-2020Fall-PA1-Student-Version" />
@@ -208,18 +208,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
+      <item itemvalue="JAR Application.PA1_obfuscated.jar" />
+      <item itemvalue="JUnit.Test" />
       <item itemvalue="JUnit.ConsolePlayerTests.testNextMove" />
       <item itemvalue="JUnit.GameTieBreakerTests" />
       <item itemvalue="JUnit.KnightTests" />
-      <item itemvalue="JUnit.Test" />
-      <item itemvalue="JAR Application.PA1_obfuscated.jar" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.KnightTests" />
         <item itemvalue="JAR Application.PA1_obfuscated.jar" />
         <item itemvalue="JUnit.ConsolePlayerTests.testNextMove" />
         <item itemvalue="JUnit.GameTieBreakerTests" />
-        <item itemvalue="JUnit.KnightTests" />
       </list>
     </recent_temporary>
   </component>
@@ -460,7 +460,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601474059081</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="updated getAvailableMoves() for checking horse leg condition">
+      <created>1601552058296</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1601552058296</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,7 +522,8 @@
     <MESSAGE value="put all capture condition before tie breaking to fix capturing all condition" />
     <MESSAGE value="implement getAvailableMoves() in Knight.java" />
     <MESSAGE value="updated getAvailableMoves() in Knight.java to check null before checking piece of same player" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated getAvailableMoves() in Knight.java to check null before checking piece of same player" />
+    <MESSAGE value="updated getAvailableMoves() for checking horse leg condition" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated getAvailableMoves() for checking horse leg condition" />
   </component>
   <component name="WindowStateProjectService">
     <state x="375" y="105" key="#Project_Structure" timestamp="1601374216578">
@@ -578,11 +586,11 @@
     <state x="328" y="106" key="SettingsEditor/624.-1057.1920.1057/0.0.1680.1050/-1296.-1057.1920.1057@0.0.1680.1050" timestamp="1599726074766" />
     <state x="366" y="106" key="SettingsEditor/624.-1057.1920.1057/47.0.1633.1050/-1296.-1057.1920.1057@47.0.1633.1050" timestamp="1600267765095" />
     <state x="328" y="106" key="SettingsEditor/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1600957348670" />
-    <state x="503" y="262" width="1133" height="535" key="Vcs.Push.Dialog.v2" timestamp="1601474069559">
+    <state x="503" y="262" width="1133" height="535" key="Vcs.Push.Dialog.v2" timestamp="1601552078928">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1601027700019" />
-    <state x="503" y="262" width="1133" height="535" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1601474069559" />
+    <state x="503" y="262" width="1133" height="535" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1601552078928" />
     <state x="440" y="265" key="Vcs.Push.Dialog.v2/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599622187604" />
     <state x="440" y="265" key="Vcs.Push.Dialog.v2/624.-1057.1920.1057/0.0.1680.1050/-1296.-1057.1920.1057@0.0.1680.1050" timestamp="1599925284913" />
     <state x="440" y="265" key="Vcs.Push.Dialog.v2/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1600436380199" />
@@ -590,10 +598,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="636" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1600148086022" />
-    <state x="746" y="428" width="648" height="224" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1601374407662">
+    <state x="746" y="428" width="648" height="224" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1601552072684">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="746" y="428" width="648" height="224" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601374407662" />
+    <state x="746" y="428" width="648" height="224" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601552072684" />
     <state x="509" y="374" key="git4idea.ui.GitTagDialog" timestamp="1599619834414">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -606,16 +614,5 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="682" y="228" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1601383894458" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/piece/Knight.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
