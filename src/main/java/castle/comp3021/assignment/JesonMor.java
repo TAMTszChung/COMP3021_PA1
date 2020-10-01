@@ -1,5 +1,6 @@
 package castle.comp3021.assignment;
 
+import castle.comp3021.assignment.piece.Knight;
 import castle.comp3021.assignment.protocol.*;
 import org.jetbrains.annotations.NotNull;
 
@@ -49,8 +50,9 @@ public class JesonMor extends Game {
             Piece currentPiece = this.getPiece(nextmove.getDestination());
             updateScore(currentPlayer, currentPiece,nextmove);
             this.numMoves += 1;
-            winner = getWinner(currentPlayer,currentPiece,nextmove);
             this.refreshOutput();
+            winner = getWinner(currentPlayer,currentPiece,nextmove);
+
             // student implementation ends here
             if (winner != null) {
                 System.out.println();
@@ -79,7 +81,7 @@ public class JesonMor extends Game {
         // TODO student implementation
         var numenemy = 0;
         for (int i=0; i<this.board.length;i++){
-            for (int j=0; j>this.board[i].length; j++){
+            for (int j=0; j<this.board[i].length; j++){
                 if (this.board[i][j] == null){
                     continue;
                 }else{
@@ -96,9 +98,9 @@ public class JesonMor extends Game {
         Player nextplayer = configuration.getPlayers()[this.numMoves%2];
         if (getAvailableMoves(nextplayer).length == 0){
             if (lastPlayer.getScore() > nextplayer.getScore()){
-                return lastPlayer;
-            }else if (lastPlayer.getScore() < nextplayer.getScore()){
                 return nextplayer;
+            }else if (lastPlayer.getScore() < nextplayer.getScore()){
+                return lastPlayer;
             }else{
                 return lastPlayer;
             }
@@ -109,7 +111,7 @@ public class JesonMor extends Game {
             return null;
         }
         //win by: leaving central place
-        if (lastMove.getSource().equals(this.configuration.getCentralPlace())){
+        if (lastPiece instanceof Knight && lastMove.getSource().equals(this.configuration.getCentralPlace())){
             return lastPlayer;
         }
         return null;
@@ -194,7 +196,6 @@ public class JesonMor extends Game {
                 }
             }
         }
-
         return availableMove.toArray(new Move[availableMove.size()]);
     }
 }
