@@ -7,6 +7,8 @@ import castle.comp3021.assignment.protocol.Move;
 import castle.comp3021.assignment.protocol.Player;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Random;
+
 /**
  * A computer player that makes a move randomly.
  */
@@ -37,8 +39,7 @@ public class RandomPlayer extends Player {
         // TODO student implementation
         Move chosenMove = null;
         while(chosenMove == null) {
-            var randomInt = (int) (Math.random() * (availableMoves.length));
-            Move tempchosenMove = availableMoves[randomInt];
+            Move tempchosenMove = availableMoves[new Random().nextInt(availableMoves.length)];
 
             var inputsourceX = tempchosenMove.getSource().x();
             var inputsourceY = tempchosenMove.getSource().y();

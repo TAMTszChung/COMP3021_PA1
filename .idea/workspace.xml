@@ -32,9 +32,7 @@
   <component name="ChangeListManager">
     <list default="true" id="294addc6-b9fc-4824-9c4b-cacfd7251411" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/JesonMor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/JesonMor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/piece/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/piece/Knight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/castle/comp3021/assignment/protocol/GameTieBreakerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/castle/comp3021/assignment/protocol/GameTieBreakerTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +127,7 @@
       <recent name="$PROJECT_DIR$/src/main" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GameTieBreakerTests">
+  <component name="RunManager" selected="JUnit.ArcherTests">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="castle.comp3021.assignment.Main" />
       <module name="COMP3021-2020Fall-PA1-Student-Version" />
@@ -144,7 +142,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ConfigurationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ArcherTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP3021-2020Fall-PA1-Student-Version" />
       <extension name="coverage">
         <pattern>
@@ -153,37 +151,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="castle.comp3021.assignment.protocol" />
-      <option name="MAIN_CLASS_NAME" value="castle.comp3021.assignment.protocol.ConfigurationTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ConsolePlayerTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="COMP3021-2020Fall-PA1-Student-Version" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="castle.comp3021.assignment.protocol.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="castle.comp3021.assignment.protocol" />
-      <option name="MAIN_CLASS_NAME" value="castle.comp3021.assignment.protocol.ConsolePlayerTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GameTieBreakerTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="COMP3021-2020Fall-PA1-Student-Version" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="castle.comp3021.assignment.protocol.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="castle.comp3021.assignment.protocol" />
-      <option name="MAIN_CLASS_NAME" value="castle.comp3021.assignment.protocol.GameTieBreakerTests" />
+      <option name="MAIN_CLASS_NAME" value="castle.comp3021.assignment.protocol.ArcherTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -204,6 +172,51 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="KnightTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="COMP3021-2020Fall-PA1-Student-Version" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="castle.comp3021.assignment.protocol.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="castle.comp3021.assignment.protocol" />
+      <option name="MAIN_CLASS_NAME" value="castle.comp3021.assignment.protocol.KnightTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="COMP3021-2020Fall-PA1-Student-Version" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="castle.comp3021.assignment.protocol.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="castle.comp3021.assignment.protocol" />
+      <option name="MAIN_CLASS_NAME" value="castle.comp3021.assignment.protocol.MainTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RandomPlayerTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="COMP3021-2020Fall-PA1-Student-Version" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="castle.comp3021.assignment.protocol.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="castle.comp3021.assignment.protocol" />
+      <option name="MAIN_CLASS_NAME" value="castle.comp3021.assignment.protocol.RandomPlayerTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test" type="JUnit" factoryName="JUnit">
       <module name="COMP3021-2020Fall-PA1-Student-Version" />
       <useClassPathOnly />
@@ -216,28 +229,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PA1_obfuscated.jar" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/artifacts/PA1_obfuscated.jar" />
-      <option name="PROGRAM_PARAMETERS" value="9 5" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="JAR Application.PA1_obfuscated.jar" />
       <item itemvalue="JUnit.Test" />
-      <item itemvalue="JUnit.ConfigurationTests" />
-      <item itemvalue="JUnit.ConsolePlayerTests" />
       <item itemvalue="JUnit.GameUnitTests" />
-      <item itemvalue="JUnit.GameTieBreakerTests" />
+      <item itemvalue="JUnit.KnightTests" />
+      <item itemvalue="JUnit.MainTests" />
+      <item itemvalue="JUnit.RandomPlayerTests" />
+      <item itemvalue="JUnit.ArcherTests" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GameTieBreakerTests" />
+        <item itemvalue="JUnit.ArcherTests" />
+        <item itemvalue="JUnit.RandomPlayerTests" />
+        <item itemvalue="JUnit.MainTests" />
+        <item itemvalue="JUnit.KnightTests" />
         <item itemvalue="JUnit.GameUnitTests" />
-        <item itemvalue="JUnit.ConsolePlayerTests" />
-        <item itemvalue="JUnit.ConfigurationTests" />
-        <item itemvalue="JAR Application.PA1_obfuscated.jar" />
       </list>
     </recent_temporary>
   </component>
@@ -520,7 +527,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601563595900</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="fix bug for tie breaking condition">
+      <created>1601568001214</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1601568001214</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -552,7 +566,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="small clarification on the upper bound of gameboard size" />
     <MESSAGE value="add submission ddl" />
     <MESSAGE value="add FAQ of corrupted ANSI color" />
     <MESSAGE value="resize image" />
@@ -577,7 +590,8 @@
     <MESSAGE value="fix code style" />
     <MESSAGE value="updated nextMove() and getAvailableMoves()" />
     <MESSAGE value="fix getAvailableMoves() in JesonMor.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix getAvailableMoves() in JesonMor.java" />
+    <MESSAGE value="fix bug for tie breaking condition" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bug for tie breaking condition" />
   </component>
   <component name="WindowStateProjectService">
     <state x="375" y="105" key="#Project_Structure" timestamp="1601374216578">
@@ -612,28 +626,28 @@
     <state x="310" y="126" width="1577" height="832" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601473772390" />
     <state x="165" y="93" key="DiffContextDialog/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620432334" />
     <state x="165" y="93" width="1344" height="840" key="DiffContextDialog/624.-1057.1920.1057/43.0.1637.1050/-1296.-1057.1920.1057@43.0.1637.1050" timestamp="1600435910952" />
-    <state width="1679" height="544" key="GridCell.Tab.0.bottom" timestamp="1601567530221">
+    <state width="1679" height="299" key="GridCell.Tab.0.bottom" timestamp="1601568358904">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1679" height="544" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601567530221" />
+    <state width="1679" height="299" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601568358904" />
     <state width="1638" height="284" key="GridCell.Tab.0.bottom/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620487809" />
     <state width="1638" height="284" key="GridCell.Tab.0.bottom/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1599628349154" />
-    <state width="1679" height="544" key="GridCell.Tab.0.center" timestamp="1601567530220">
+    <state width="1679" height="299" key="GridCell.Tab.0.center" timestamp="1601568358904">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1679" height="544" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601567530220" />
+    <state width="1679" height="299" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601568358904" />
     <state width="1638" height="284" key="GridCell.Tab.0.center/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620487801" />
     <state width="1638" height="284" key="GridCell.Tab.0.center/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1599628349152" />
-    <state width="1679" height="544" key="GridCell.Tab.0.left" timestamp="1601567530220">
+    <state width="1679" height="299" key="GridCell.Tab.0.left" timestamp="1601568358904">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1679" height="544" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601567530220" />
+    <state width="1679" height="299" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601568358904" />
     <state width="1638" height="284" key="GridCell.Tab.0.left/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620487798" />
     <state width="1638" height="284" key="GridCell.Tab.0.left/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1599628349151" />
-    <state width="1679" height="544" key="GridCell.Tab.0.right" timestamp="1601567530220">
+    <state width="1679" height="299" key="GridCell.Tab.0.right" timestamp="1601568358904">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1679" height="544" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601567530220" />
+    <state width="1679" height="299" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601568358904" />
     <state width="1638" height="284" key="GridCell.Tab.0.right/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620487804" />
     <state width="1638" height="284" key="GridCell.Tab.0.right/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1599628349153" />
     <state x="328" y="106" key="SettingsEditor" timestamp="1601214074000">
@@ -644,11 +658,11 @@
     <state x="328" y="106" key="SettingsEditor/624.-1057.1920.1057/0.0.1680.1050/-1296.-1057.1920.1057@0.0.1680.1050" timestamp="1599726074766" />
     <state x="366" y="106" key="SettingsEditor/624.-1057.1920.1057/47.0.1633.1050/-1296.-1057.1920.1057@47.0.1633.1050" timestamp="1600267765095" />
     <state x="328" y="106" key="SettingsEditor/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1600957348670" />
-    <state x="503" y="262" width="1133" height="535" key="Vcs.Push.Dialog.v2" timestamp="1601563609370">
+    <state x="503" y="262" width="1133" height="535" key="Vcs.Push.Dialog.v2" timestamp="1601568010555">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1601027700019" />
-    <state x="503" y="262" width="1133" height="535" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1601563609370" />
+    <state x="503" y="262" width="1133" height="535" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1601568010555" />
     <state x="440" y="265" key="Vcs.Push.Dialog.v2/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599622187604" />
     <state x="440" y="265" key="Vcs.Push.Dialog.v2/624.-1057.1920.1057/0.0.1680.1050/-1296.-1057.1920.1057@0.0.1680.1050" timestamp="1599925284913" />
     <state x="440" y="265" key="Vcs.Push.Dialog.v2/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1600436380199" />
