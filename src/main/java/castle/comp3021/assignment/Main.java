@@ -1,5 +1,6 @@
 package castle.comp3021.assignment;
 
+import castle.comp3021.assignment.piece.Archer;
 import castle.comp3021.assignment.piece.Knight;
 import castle.comp3021.assignment.player.ConsolePlayer;
 import castle.comp3021.assignment.player.RandomPlayer;
@@ -33,12 +34,27 @@ public class Main {
         var computerPlayer = new RandomPlayer("ComputerPlayer");
         // we give
         Configuration configuration = new Configuration(size, new Player[]{userPlayer, computerPlayer}, numMovesProtection);
-        var knight1 = new Knight(userPlayer);
-        var knight2 = new Knight(computerPlayer);
-        // put knight1 at place(0,0) on the gameboard
-        configuration.addInitialPiece(knight1, 0, 0);
-        // put knight2 at place(1,0) on the gameboard
-        configuration.addInitialPiece(knight2, 1, 0);
+        //initialize user pieces
+        for (int i=0; i<size; i++){
+            if (i%2 == 0){
+                var knight = new Knight(userPlayer);
+                configuration.addInitialPiece(knight, i, 0);
+            }else{
+                var archer = new Archer(userPlayer);
+                configuration.addInitialPiece(archer, i, 0);
+            }
+        }
+        //initialize enemy pieces
+        for (int i=0; i<size; i++){
+            if (i%2 == 0){
+                var knight = new Knight(userPlayer);
+                configuration.addInitialPiece(knight, i, size-1);
+            }else{
+                var archer = new Archer(userPlayer);
+                configuration.addInitialPiece(archer, i, size-1);
+            }
+        }
+
         return new JesonMor(configuration);
     }
 
