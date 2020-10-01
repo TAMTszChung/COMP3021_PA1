@@ -32,9 +32,9 @@
   <component name="ChangeListManager">
     <list default="true" id="294addc6-b9fc-4824-9c4b-cacfd7251411" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/JesonMor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/JesonMor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/piece/Archer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/piece/Archer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/piece/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/piece/Knight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/player/ConsolePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/player/ConsolePlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/player/RandomPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/player/RandomPlayer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +129,7 @@
       <recent name="$PROJECT_DIR$/src/main" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ArcherTests">
+  <component name="RunManager" selected="JAR Application.PA1_obfuscated.jar">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="castle.comp3021.assignment.Main" />
       <module name="COMP3021-2020Fall-PA1-Student-Version" />
@@ -234,9 +234,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JAR Application.PA1_obfuscated.jar" />
         <item itemvalue="JUnit.ArcherTests" />
         <item itemvalue="JUnit.KnightTests" />
-        <item itemvalue="JAR Application.PA1_obfuscated.jar" />
         <item itemvalue="JUnit.ConsolePlayerTests.testNextMove" />
         <item itemvalue="JUnit.GameTieBreakerTests" />
       </list>
@@ -500,7 +500,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601554238648</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="fix code style">
+      <created>1601555104894</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1601555104894</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -532,7 +539,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="make JavaDoc available in GitHub Page" />
     <MESSAGE value="add FAQ" />
     <MESSAGE value="add FAQ Q5" />
     <MESSAGE value="small clarification on the upper bound of gameboard size" />
@@ -557,7 +563,8 @@
     <MESSAGE value="updated getAvailableMoves() for checking horse leg condition" />
     <MESSAGE value="updated getAvailableMoves() implementation to eliminate invalid move" />
     <MESSAGE value="updated getAvailableMoves() in Knight.java and Archer.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated getAvailableMoves() in Knight.java and Archer.java" />
+    <MESSAGE value="fix code style" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix code style" />
   </component>
   <component name="WindowStateProjectService">
     <state x="375" y="105" key="#Project_Structure" timestamp="1601374216578">
@@ -588,28 +595,28 @@
     <state x="310" y="126" width="1577" height="832" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601473772390" />
     <state x="165" y="93" key="DiffContextDialog/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620432334" />
     <state x="165" y="93" width="1344" height="840" key="DiffContextDialog/624.-1057.1920.1057/43.0.1637.1050/-1296.-1057.1920.1057@43.0.1637.1050" timestamp="1600435910952" />
-    <state width="1679" height="332" key="GridCell.Tab.0.bottom" timestamp="1601554239290">
+    <state width="1679" height="332" key="GridCell.Tab.0.bottom" timestamp="1601560525829">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1679" height="332" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601554239290" />
+    <state width="1679" height="332" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601560525829" />
     <state width="1638" height="284" key="GridCell.Tab.0.bottom/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620487809" />
     <state width="1638" height="284" key="GridCell.Tab.0.bottom/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1599628349154" />
-    <state width="1679" height="332" key="GridCell.Tab.0.center" timestamp="1601554239290">
+    <state width="1679" height="332" key="GridCell.Tab.0.center" timestamp="1601560525829">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1679" height="332" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601554239290" />
+    <state width="1679" height="332" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601560525829" />
     <state width="1638" height="284" key="GridCell.Tab.0.center/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620487801" />
     <state width="1638" height="284" key="GridCell.Tab.0.center/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1599628349152" />
-    <state width="1679" height="332" key="GridCell.Tab.0.left" timestamp="1601554239290">
+    <state width="1679" height="332" key="GridCell.Tab.0.left" timestamp="1601560525829">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1679" height="332" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601554239290" />
+    <state width="1679" height="332" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601560525829" />
     <state width="1638" height="284" key="GridCell.Tab.0.left/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620487798" />
     <state width="1638" height="284" key="GridCell.Tab.0.left/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1599628349151" />
-    <state width="1679" height="332" key="GridCell.Tab.0.right" timestamp="1601554239290">
+    <state width="1679" height="332" key="GridCell.Tab.0.right" timestamp="1601560525829">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1679" height="332" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601554239290" />
+    <state width="1679" height="332" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601560525829" />
     <state width="1638" height="284" key="GridCell.Tab.0.right/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620487804" />
     <state width="1638" height="284" key="GridCell.Tab.0.right/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1599628349153" />
     <state x="328" y="106" key="SettingsEditor" timestamp="1601214074000">
@@ -620,11 +627,11 @@
     <state x="328" y="106" key="SettingsEditor/624.-1057.1920.1057/0.0.1680.1050/-1296.-1057.1920.1057@0.0.1680.1050" timestamp="1599726074766" />
     <state x="366" y="106" key="SettingsEditor/624.-1057.1920.1057/47.0.1633.1050/-1296.-1057.1920.1057@47.0.1633.1050" timestamp="1600267765095" />
     <state x="328" y="106" key="SettingsEditor/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1600957348670" />
-    <state x="503" y="262" width="1133" height="535" key="Vcs.Push.Dialog.v2" timestamp="1601554248900">
+    <state x="503" y="262" width="1133" height="535" key="Vcs.Push.Dialog.v2" timestamp="1601555115342">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1601027700019" />
-    <state x="503" y="262" width="1133" height="535" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1601554248900" />
+    <state x="503" y="262" width="1133" height="535" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1601555115342" />
     <state x="440" y="265" key="Vcs.Push.Dialog.v2/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599622187604" />
     <state x="440" y="265" key="Vcs.Push.Dialog.v2/624.-1057.1920.1057/0.0.1680.1050/-1296.-1057.1920.1057@0.0.1680.1050" timestamp="1599925284913" />
     <state x="440" y="265" key="Vcs.Push.Dialog.v2/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1600436380199" />
@@ -644,9 +651,9 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="245" y="189" key="new project wizard/0.0.1680.1050@0.0.1680.1050" timestamp="1599978032620" />
-    <state x="682" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1601383894458">
+    <state x="682" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1601559194799">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="682" y="228" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1601383894458" />
+    <state x="682" y="228" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1601559194799" />
   </component>
 </project>

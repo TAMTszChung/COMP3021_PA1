@@ -59,7 +59,9 @@ public class Archer extends Piece {
             }else if(otherPiece == 1){
                 continue;
             }else if(otherPiece == 2){
-                if (game.getPiece(i,originaly) != null && !game.getPiece(i,originaly).getPlayer().equals(game.getCurrentPlayer())){
+                if (game.getPiece(i,originaly) != null
+                        && !game.getPiece(i,originaly).getPlayer().equals(game.getCurrentPlayer())
+                        && game.getNumMoves() >= game.getConfiguration().getNumMovesProtection()){
                     availableMove.add(new Move(source, new Place(i, originaly)));
                 }
                 break;

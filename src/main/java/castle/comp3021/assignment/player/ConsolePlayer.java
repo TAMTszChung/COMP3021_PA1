@@ -1,7 +1,13 @@
 package castle.comp3021.assignment.player;
 
+import castle.comp3021.assignment.piece.Archer;
+import castle.comp3021.assignment.piece.Knight;
 import castle.comp3021.assignment.protocol.*;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
 
 /**
  * The player that makes move according to user input from console.
@@ -41,6 +47,75 @@ public class ConsolePlayer extends Player {
     @Override
     public @NotNull Move nextMove(Game game, Move[] availableMoves) {
         // TODO student implementation
-        return availableMoves[0];
+        Move chosenMove = null;
+
+        while (chosenMove == null){
+            System.out.println("["+this.name+"]"+" Make a Move: ");
+            Scanner scanner = new Scanner(System.in);
+            String userInput = scanner.nextLine();
+            if (!userInput.matches("[ \\t]*[a-zA-Z]{1}[\\d]+[ \\t]*->[ \\t]*[a-zA-Z]{1}[\\d]+[ \\t]*$")){
+                System.out.println("[Invalid Move]: Incorrect format");
+                continue;
+            }
+            //split the input into 2 string for location and trim white space
+            String[] locations = userInput.split("->");
+            for (int i=0;i< locations.length;i++){
+                locations[i] = locations[i].trim();
+            }
+
+            var inputsourceX = (locations[0].substring(0,1).toLowerCase().charAt(0)-'a');
+            var inputsourceY = Integer.parseInt(locations[0].substring(1))-1;
+            var inputdesX = (locations[1].substring(0,1).toLowerCase().charAt(0)-'a');
+            var inputdesY = Integer.parseInt(locations[1].substring(1))-1;
+
+            if (inputsourceX<0
+                    ||inputsourceY<0
+                    ||inputsourceX>=game.getConfiguration().getSize()
+                    ||inputsourceY>=game.getConfiguration().getSize()
+                    || inputdesX<0
+                    || inputdesY<0
+                    || inputdesX>=game.getConfiguration().getSize()
+                    || inputdesY>=game.getConfiguration().getSize()){
+                System.out.println("[Invalid Move]: place is out of boundary of gameboard");
+                continue;
+            }
+            if (game.getPiece(inputdesX, inputdesY) != null){
+                if (game.getPiece(inputdesX, inputdesY).getPlayer()
+                        .equals(game.getPiece(inputsourceX, inputsourceY).getPlayer())){
+                    System.out.println("[Invalid Move]: piece cannot be captured by another piece belonging to the same player");
+                    continue;
+                }
+            }
+
+            if (game.getPiece(inputsourceX, inputsourceY) == null){
+                System.out.println("[Invalid Move]: No piece at s(" + inputsourceX + ", " + inputsourceY + ")");
+                continue;
+            }else if (game.getPiece(inputsourceX, inputsourceY) instanceof Knight){
+                var xShift = inputdesX - inputsourceX;
+                var yShift = inputdesY - inputsourceY;
+                if (!(xShift==1 && yShift==2)
+                        && !(xShift==-1 && yShift==2)
+                        && !(xShift==2 && yShift==1)
+                        && !(xShift==-2 && yShift==1)
+                        && !(xShift==2 && yShift==-1)
+                        && !(xShift==-2 && yShift==-1)
+                        && !(xShift==1 && yShift==-2)
+                        && !(xShift==-1 && yShift==-2)){
+                    System.out.println("[Invalid Move]: knight move rule is violated");
+                    continue;
+                }
+            }
+
+            Move tempMove = new Move(inputsourceX,inputsourceY,inputdesX,inputdesY);
+            ArrayList<Move> Moves =
+                    new ArrayList<Move>(Arrays.asList(availableMoves));
+            if (!Moves.contains(tempMove)){
+                System.out.println("[Invalid Move]: please make a valid move");
+                continue;
+            }
+            chosenMove = tempMove;
+        }
+
+        return chosenMove;
     }
 }
