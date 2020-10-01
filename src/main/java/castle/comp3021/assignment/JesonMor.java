@@ -186,8 +186,8 @@ public class JesonMor extends Game {
         // TODO student implementation
         ArrayList<Move> availableMove = new ArrayList<>();
         for (int i=0; i<this.board.length;i++){
-            for (int j=0; j>this.board[i].length; j++){
-                if (this.board[i][j].getPlayer().equals(player)){
+            for (int j=0; j<this.board[i].length; j++){
+                if (this.board[i][j]!=null && this.board[i][j].getPlayer().equals(player)){
                     ArrayList<Move> tempMoves =
                             new ArrayList<Move>(Arrays.asList(this.board[i][j].getAvailableMoves(this, new Place(i,j))));
                     availableMove.addAll(tempMoves);
