@@ -50,7 +50,7 @@ public class ConsolePlayer extends Player {
         Move chosenMove = null;
 
         while (chosenMove == null){
-            System.out.println("["+this.name+"]"+" Make a Move: ");
+            System.out.print("["+this.name+"]"+" Make a Move: ");
             Scanner scanner = new Scanner(System.in);
             String userInput = scanner.nextLine();
             if (!userInput.matches("[ \\t]*[a-zA-Z]{1}[\\d]+[ \\t]*->[ \\t]*[a-zA-Z]{1}[\\d]+[ \\t]*$")){

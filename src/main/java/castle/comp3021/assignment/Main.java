@@ -47,10 +47,10 @@ public class Main {
         //initialize enemy pieces
         for (int i=0; i<size; i++){
             if (i%2 == 0){
-                var knight = new Knight(userPlayer);
+                var knight = new Knight(computerPlayer);
                 configuration.addInitialPiece(knight, i, size-1);
             }else{
-                var archer = new Archer(userPlayer);
+                var archer = new Archer(computerPlayer);
                 configuration.addInitialPiece(archer, i, size-1);
             }
         }
