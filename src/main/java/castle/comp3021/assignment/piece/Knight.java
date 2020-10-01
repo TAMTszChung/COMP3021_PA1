@@ -42,15 +42,17 @@ public class Knight extends Piece {
     @Override
     public Move[] getAvailableMoves(Game game, Place source) {
         // TODO student implementation
+        var sourceX = source.x();
+        var sourceY = source.y();
         ArrayList<Move> AvailableMove = new ArrayList<>();
-        AvailableMove.add(new Move(source, new Place(source.x()+1, source.y()+2)));
-        AvailableMove.add(new Move(source, new Place(source.x()+2, source.y()+1)));
-        AvailableMove.add(new Move(source, new Place(source.x()+2, source.y()-1)));
-        AvailableMove.add(new Move(source, new Place(source.x()+1, source.y()-2)));
-        AvailableMove.add(new Move(source, new Place(source.x()-1, source.y()-2)));
-        AvailableMove.add(new Move(source, new Place(source.x()-2, source.y()-1)));
-        AvailableMove.add(new Move(source, new Place(source.x()-2, source.y()+1)));
-        AvailableMove.add(new Move(source, new Place(source.x()-1, source.y()+2)));
+        AvailableMove.add(new Move(source, new Place(sourceX+1, sourceY+2)));
+        AvailableMove.add(new Move(source, new Place(sourceX+2, sourceY+1)));
+        AvailableMove.add(new Move(source, new Place(sourceX+2, sourceY-1)));
+        AvailableMove.add(new Move(source, new Place(sourceX+1, sourceY-2)));
+        AvailableMove.add(new Move(source, new Place(sourceX-1, sourceY-2)));
+        AvailableMove.add(new Move(source, new Place(sourceX-2, sourceY-1)));
+        AvailableMove.add(new Move(source, new Place(sourceX-2, sourceY+1)));
+        AvailableMove.add(new Move(source, new Place(sourceX-1, sourceY+2)));
 
         for (int i=AvailableMove.size()-1; i>=0;i--){
             var originalx = AvailableMove.get(i).getSource().x();

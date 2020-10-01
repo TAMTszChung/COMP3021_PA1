@@ -6,6 +6,8 @@ import castle.comp3021.assignment.protocol.Piece;
 import castle.comp3021.assignment.protocol.Place;
 import castle.comp3021.assignment.protocol.Player;
 
+import java.util.ArrayList;
+
 /**
  * Archer piece that moves similar to cannon in chinese chess.
  * Rules of move of Archer can be found in wikipedia (https://en.wikipedia.org/wiki/Xiangqi#Cannon).
@@ -18,7 +20,6 @@ import castle.comp3021.assignment.protocol.Player;
 public class Archer extends Piece {
     public Archer(Player player) {
         super(player);
-        throw new UnsupportedOperationException(); // remove this line if you plan to implement Archer
     }
 
     @Override
@@ -44,6 +45,85 @@ public class Archer extends Piece {
     @Override
     public Move[] getAvailableMoves(Game game, Place source) {
         // TODO student implementation
-        return new Move[0];
+        ArrayList<Move> AvailableMove = new ArrayList<>();
+        var originalx = source.x();
+        var originaly = source.y();
+        //right
+        var OtherPiece = 0;
+        for (int i=originalx+1; i<game.getConfiguration().getSize(); i++){
+            if (game.getPiece(i,originaly) != null){
+                OtherPiece += 1;
+            }
+            if (OtherPiece == 0){
+                AvailableMove.add(new Move(source, new Place(i, originaly)));
+            }else if(OtherPiece == 1){
+                continue;
+            }else if(OtherPiece == 2){
+                if (game.getPiece(i,originaly) != null && !game.getPiece(i,originaly).getPlayer().equals(game.getCurrentPlayer())){
+                    AvailableMove.add(new Move(source, new Place(i, originaly)));
+                }
+                break;
+            }else{
+                break;
+            }
+        }
+        //left
+        OtherPiece = 0;
+        for (int i=originalx-1; i>=0; i--){
+            if (game.getPiece(i,originaly) != null){
+                OtherPiece += 1;
+            }
+            if (OtherPiece == 0){
+                AvailableMove.add(new Move(source, new Place(i, originaly)));
+            }else if(OtherPiece == 1){
+                continue;
+            }else if(OtherPiece == 2){
+                if (game.getPiece(i,originaly) != null && !game.getPiece(i,originaly).getPlayer().equals(game.getCurrentPlayer())){
+                    AvailableMove.add(new Move(source, new Place(i, originaly)));
+                }
+                break;
+            }else{
+                break;
+            }
+        }
+        //up
+        OtherPiece = 0;
+        for (int i=originaly+1; i<game.getConfiguration().getSize(); i++){
+            if (game.getPiece(originalx,i) != null){
+                OtherPiece += 1;
+            }
+            if (OtherPiece == 0){
+                AvailableMove.add(new Move(source, new Place(originalx,i)));
+            }else if(OtherPiece == 1){
+                continue;
+            }else if(OtherPiece == 2){
+                if (game.getPiece(originalx,i) != null && !game.getPiece(originalx,i).getPlayer().equals(game.getCurrentPlayer())){
+                    AvailableMove.add(new Move(source, new Place(originalx,i)));
+                }
+                break;
+            }else{
+                break;
+            }
+        }
+        //down
+        OtherPiece = 0;
+        for (int i=originaly-1; i>=0; i--){
+            if (game.getPiece(originalx,i) != null){
+                OtherPiece += 1;
+            }
+            if (OtherPiece == 0){
+                AvailableMove.add(new Move(source, new Place(originalx,i)));
+            }else if(OtherPiece == 1){
+                continue;
+            }else if(OtherPiece == 2){
+                if (game.getPiece(originalx,i) != null && !game.getPiece(originalx,i).getPlayer().equals(game.getCurrentPlayer())){
+                    AvailableMove.add(new Move(source, new Place(originalx,i)));
+                }
+                break;
+            }else{
+                break;
+            }
+        }
+        return AvailableMove.toArray(new Move[AvailableMove.size()]);
     }
 }
