@@ -191,7 +191,7 @@ public class JesonMor extends Game {
             for (int j=0; j<this.board[i].length; j++){
                 if (this.board[i][j]!=null && this.board[i][j].getPlayer().equals(player)){
                     ArrayList<Move> tempMoves =
-                            new ArrayList<Move>(Arrays.asList(this.board[i][j].getAvailableMoves(this, new Place(i,j))));
+                            new ArrayList<>(Arrays.asList(this.board[i][j].getAvailableMoves(this, new Place(i,j))));
                     availableMove.addAll(tempMoves);
                 }
             }
@@ -243,15 +243,13 @@ public class JesonMor extends Game {
                 //check moving rule of Knight
                 if (Math.abs(xShift) == 2 && Math.abs(yShift) == 1){
                     var legPosX = (destinationX + originalX)/2;
-                    var legPosY = originalY;
-                    if (this.getPiece(legPosX,legPosY) != null){
+                    if (this.getPiece(legPosX,originalY) != null){
                         availableMove.remove(x);
                         continue;
                     }
                 }else if (Math.abs(xShift) == 1 && Math.abs(yShift) == 2){
-                    var legPosX = originalX;
                     var legPosY = (destinationY + originalY)/2;
-                    if (this.getPiece(legPosX,legPosY) != null){
+                    if (this.getPiece(originalX,legPosY) != null){
                         availableMove.remove(x);
                         continue;
                     }
@@ -299,11 +297,15 @@ public class JesonMor extends Game {
                 if (numPiecebetween >= 2){
                     availableMove.remove(x);
                     continue;
-                }else if (numPiecebetween == 1
-                        && this.getPiece(destinationX,destinationY).getPlayer()
-                        .equals(this.getPiece(originalX, originalY).getPlayer())){
-                    availableMove.remove(x);
-                    continue;
+                }else if (numPiecebetween == 1){
+                    if (this.getPiece(destinationX,destinationY) == null){
+                        availableMove.remove(x);
+                        continue;
+                    }else if(this.getPiece(destinationX,destinationY).getPlayer()
+                            .equals(this.getPiece(originalX, originalY).getPlayer())){
+                        availableMove.remove(x);
+                        continue;
+                    }
                 }
             }
         }
