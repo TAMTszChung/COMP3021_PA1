@@ -32,11 +32,6 @@
   <component name="ChangeListManager">
     <list default="true" id="294addc6-b9fc-4824-9c4b-cacfd7251411" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/JesonMor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/JesonMor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/piece/Archer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/piece/Archer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/piece/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/piece/Knight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/player/ConsolePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/player/ConsolePlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/player/RandomPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/player/RandomPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/castle/comp3021/assignment/AdditionalTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/castle/comp3021/assignment/AdditionalTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -213,6 +208,7 @@
     <configuration name="Test" type="JUnit" factoryName="JUnit">
       <module name="COMP3021-2020Fall-PA1-Student-Version" />
       <useClassPathOnly />
+      <extension name="coverage" sample_coverage="false" />
       <option name="MAIN_CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="directory" />
@@ -224,14 +220,18 @@
     </configuration>
     <configuration name="castle.comp3021.assignment.protocol in COMP3021-2020Fall-PA1-Student-Version" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP3021-2020Fall-PA1-Student-Version" />
-      <extension name="coverage">
+      <useClassPathOnly />
+      <extension name="coverage" sample_coverage="false">
         <pattern>
           <option name="PATTERN" value="castle.comp3021.assignment.protocol.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="castle.comp3021.assignment.protocol" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
+      <option name="PARAMETERS" value="" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -604,7 +604,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601646799999</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="seperate Move validation to new method">
+      <created>1601651655439</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1601651655439</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -636,7 +643,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="updated start()" />
     <MESSAGE value="implement getWinner() and change start()" />
     <MESSAGE value="change language level back to default" />
     <MESSAGE value="implemented movePiece()" />
@@ -661,7 +667,8 @@
     <MESSAGE value="add checking for piece ownership when checking valid moves" />
     <MESSAGE value="fix bugs" />
     <MESSAGE value="check MoveProtection in validation of move" />
-    <option name="LAST_COMMIT_MESSAGE" value="check MoveProtection in validation of move" />
+    <MESSAGE value="seperate Move validation to new method" />
+    <option name="LAST_COMMIT_MESSAGE" value="seperate Move validation to new method" />
   </component>
   <component name="WindowStateProjectService">
     <state x="375" y="105" key="#Project_Structure" timestamp="1601374216578">
@@ -669,10 +676,10 @@
     </state>
     <state x="375" y="105" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1601374216578" />
     <state x="328" y="106" key="#Project_Structure/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599619196773" />
-    <state x="347" y="185" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601650794441">
+    <state x="347" y="185" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601651899460">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="347" y="185" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601650794441" />
+    <state x="347" y="185" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601651899460" />
     <state x="304" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599619684599" />
     <state x="304" y="187" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1600332917057" />
     <state x="213" y="100" width="1539" height="847" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1601563924701">
@@ -696,28 +703,28 @@
     <state x="310" y="126" width="1577" height="832" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601643662763" />
     <state x="165" y="93" key="DiffContextDialog/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620432334" />
     <state x="165" y="93" width="1344" height="840" key="DiffContextDialog/624.-1057.1920.1057/43.0.1637.1050/-1296.-1057.1920.1057@43.0.1637.1050" timestamp="1600435910952" />
-    <state width="1569" height="477" key="GridCell.Tab.0.bottom" timestamp="1601651292835">
+    <state width="1569" height="419" key="GridCell.Tab.0.bottom" timestamp="1601651770854">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1569" height="477" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601651292835" />
+    <state width="1569" height="419" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601651770854" />
     <state width="1638" height="284" key="GridCell.Tab.0.bottom/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620487809" />
     <state width="1638" height="284" key="GridCell.Tab.0.bottom/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1599628349154" />
-    <state width="1569" height="477" key="GridCell.Tab.0.center" timestamp="1601651292835">
+    <state width="1569" height="419" key="GridCell.Tab.0.center" timestamp="1601651770854">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1569" height="477" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601651292835" />
+    <state width="1569" height="419" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601651770854" />
     <state width="1638" height="284" key="GridCell.Tab.0.center/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620487801" />
     <state width="1638" height="284" key="GridCell.Tab.0.center/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1599628349152" />
-    <state width="1569" height="477" key="GridCell.Tab.0.left" timestamp="1601651292835">
+    <state width="1569" height="419" key="GridCell.Tab.0.left" timestamp="1601651770854">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1569" height="477" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601651292835" />
+    <state width="1569" height="419" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601651770854" />
     <state width="1638" height="284" key="GridCell.Tab.0.left/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620487798" />
     <state width="1638" height="284" key="GridCell.Tab.0.left/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1599628349151" />
-    <state width="1569" height="477" key="GridCell.Tab.0.right" timestamp="1601651292835">
+    <state width="1569" height="419" key="GridCell.Tab.0.right" timestamp="1601651770854">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1569" height="477" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601651292835" />
+    <state width="1569" height="419" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601651770854" />
     <state width="1638" height="284" key="GridCell.Tab.0.right/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620487804" />
     <state width="1638" height="284" key="GridCell.Tab.0.right/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1599628349153" />
     <state x="328" y="106" key="SettingsEditor" timestamp="1601214074000">
@@ -728,11 +735,11 @@
     <state x="328" y="106" key="SettingsEditor/624.-1057.1920.1057/0.0.1680.1050/-1296.-1057.1920.1057@0.0.1680.1050" timestamp="1599726074766" />
     <state x="366" y="106" key="SettingsEditor/624.-1057.1920.1057/47.0.1633.1050/-1296.-1057.1920.1057@47.0.1633.1050" timestamp="1600267765095" />
     <state x="328" y="106" key="SettingsEditor/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1600957348670" />
-    <state x="503" y="262" width="1133" height="535" key="Vcs.Push.Dialog.v2" timestamp="1601646807904">
+    <state x="503" y="262" width="1133" height="535" key="Vcs.Push.Dialog.v2" timestamp="1601651667145">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1601027700019" />
-    <state x="503" y="262" width="1133" height="535" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1601646807904" />
+    <state x="503" y="262" width="1133" height="535" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1601651667145" />
     <state x="440" y="265" key="Vcs.Push.Dialog.v2/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599622187604" />
     <state x="440" y="265" key="Vcs.Push.Dialog.v2/624.-1057.1920.1057/0.0.1680.1050/-1296.-1057.1920.1057@0.0.1680.1050" timestamp="1599925284913" />
     <state x="440" y="265" key="Vcs.Push.Dialog.v2/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1600436380199" />
@@ -758,7 +765,10 @@
     <state x="682" y="228" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1601641399975" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/COMP3021_2020Fall_PA1_Student_Version$Test.ic" NAME="Test Coverage Results" MODIFIED="1601644298338" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/COMP3021_2020Fall_PA1_Student_Version$castle_comp3021_assignment_protocol_in_COMP3021_2020Fall_PA1_Student_Version.ic" NAME="castle.comp3021.assignment.protocol in COMP3021-2020Fall-PA1-Student-Version Coverage Results" MODIFIED="1601651788468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>castle.comp3021.assignment.protocol.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3021_2020Fall_PA1_Student_Version$Test.ic" NAME="Test Coverage Results" MODIFIED="1601651760551" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/COMP3021_2020Fall_PA1_Student_Version$GameTieBreakerTests.ic" NAME="GameTieBreakerTests Coverage Results" MODIFIED="1601564775126" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>castle.comp3021.assignment.protocol.*</FILTER>
     </SUITE>

@@ -305,9 +305,11 @@ public class JesonMor extends Game {
                 return false;
             }else if (numPiecebetween == 1){
                 if (this.getPiece(destinationX,destinationY) == null){
+                    //jump but not capture
                     return false;
                 }else if(this.getPiece(destinationX,destinationY).getPlayer()
                         .equals(this.getPiece(originalX, originalY).getPlayer())){
+                    //capture own piece
                     return false;
                 }
             }
