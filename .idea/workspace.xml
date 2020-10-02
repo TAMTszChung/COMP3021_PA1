@@ -15,25 +15,12 @@
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:source" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
     </expand>
-    <select>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </select>
+    <select />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="294addc6-b9fc-4824-9c4b-cacfd7251411" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/castle/comp3021/assignment/AdditionalTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/castle/comp3021/assignment/AdditionalTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +36,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="fix_type_in_grading_scheme" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -103,7 +90,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="ignore.preview.features.used" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/artifacts" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -117,22 +104,22 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/artifacts/img" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/lib" />
       <recent name="$PROJECT_DIR$/artifacts" />
+      <recent name="$PROJECT_DIR$/lib" />
       <recent name="$PROJECT_DIR$/artifacts/img" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/main" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/artifacts/img" />
+    </key>
   </component>
-  <component name="RunManager" selected="JUnit.AdditionalTests">
+  <component name="RunManager" selected="JUnit.GameTieBreakerTests.testMoveAndDeadlock">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="castle.comp3021.assignment.Main" />
       <module name="COMP3021-2020Fall-PA1-Student-Version" />
-      <option name="PROGRAM_PARAMETERS" value="7 5" />
+      <option name="PROGRAM_PARAMETERS" value="9 5" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="castle.comp3021.assignment.*" />
@@ -143,28 +130,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AdditionalTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameTieBreakerTests.testMoveAndDeadlock" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP3021-2020Fall-PA1-Student-Version" />
-      <useClassPathOnly />
-      <extension name="coverage" sample_coverage="false">
-        <pattern>
-          <option name="PATTERN" value="castle.comp3021.assignment.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="castle.comp3021.assignment" />
-      <option name="MAIN_CLASS_NAME" value="castle.comp3021.assignment.AdditionalTests" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="PARAMETERS" value="" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GameTieBreakerTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="COMP3021-2020Fall-PA1-Student-Version" />
-      <useClassPathOnly />
-      <extension name="coverage" sample_coverage="false">
+      <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="castle.comp3021.assignment.protocol.*" />
           <option name="ENABLED" value="true" />
@@ -172,27 +140,8 @@
       </extension>
       <option name="PACKAGE_NAME" value="castle.comp3021.assignment.protocol" />
       <option name="MAIN_CLASS_NAME" value="castle.comp3021.assignment.protocol.GameTieBreakerTests" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="PARAMETERS" value="" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GameUnitTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="COMP3021-2020Fall-PA1-Student-Version" />
-      <useClassPathOnly />
-      <extension name="coverage" sample_coverage="false">
-        <pattern>
-          <option name="PATTERN" value="castle.comp3021.assignment.protocol.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="castle.comp3021.assignment.protocol" />
-      <option name="MAIN_CLASS_NAME" value="castle.comp3021.assignment.protocol.GameUnitTests" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="PARAMETERS" value="" />
+      <option name="METHOD_NAME" value="testMoveAndDeadlock" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -200,7 +149,6 @@
     <configuration name="Test" type="JUnit" factoryName="JUnit">
       <module name="COMP3021-2020Fall-PA1-Student-Version" />
       <useClassPathOnly />
-      <extension name="coverage" sample_coverage="false" />
       <option name="MAIN_CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="directory" />
@@ -210,27 +158,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="castle.comp3021.assignment.protocol in COMP3021-2020Fall-PA1-Student-Version" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="COMP3021-2020Fall-PA1-Student-Version" />
-      <useClassPathOnly />
-      <extension name="coverage" sample_coverage="false">
-        <pattern>
-          <option name="PATTERN" value="castle.comp3021.assignment.protocol.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="castle.comp3021.assignment.protocol" />
-      <option name="MAIN_CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <option name="PARAMETERS" value="" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="PA1_obfuscated.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/artifacts/PA1_obfuscated.jar" />
-      <option name="PROGRAM_PARAMETERS" value="25 0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="PA1_obfuscated.jar" type="JarApplication">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/artifacts/checkstyle-8.36-all.jar" />
+      <option name="PROGRAM_PARAMETERS" value="-c artifacts/style_checks.xml com.puppycrawl.tools.checkstyle.gui.Main src" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2" />
     </configuration>
@@ -238,18 +172,12 @@
       <item itemvalue="Application.Main" />
       <item itemvalue="JAR Application.PA1_obfuscated.jar" />
       <item itemvalue="JUnit.Test" />
-      <item itemvalue="JUnit.GameTieBreakerTests" />
-      <item itemvalue="JUnit.GameUnitTests" />
-      <item itemvalue="JUnit.AdditionalTests" />
-      <item itemvalue="JUnit.castle.comp3021.assignment.protocol in COMP3021-2020Fall-PA1-Student-Version" />
+      <item itemvalue="JUnit.GameTieBreakerTests.testMoveAndDeadlock" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AdditionalTests" />
+        <item itemvalue="JUnit.GameTieBreakerTests.testMoveAndDeadlock" />
         <item itemvalue="JAR Application.PA1_obfuscated.jar" />
-        <item itemvalue="JUnit.castle.comp3021.assignment.protocol in COMP3021-2020Fall-PA1-Student-Version" />
-        <item itemvalue="JUnit.GameUnitTests" />
-        <item itemvalue="JUnit.GameTieBreakerTests" />
       </list>
     </recent_temporary>
   </component>
@@ -293,6 +221,11 @@
       <workItem from="1601027582031" duration="1955000" />
       <workItem from="1601214043697" duration="141000" />
       <workItem from="1601214199442" duration="358000" />
+      <workItem from="1601216121511" duration="507000" />
+      <workItem from="1601296993801" duration="2195000" />
+      <workItem from="1601370143281" duration="638000" />
+      <workItem from="1601435707184" duration="1186000" />
+      <workItem from="1601448203223" duration="3909000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1599619789508</created>
@@ -420,196 +353,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601027698741</updated>
     </task>
-    <task id="LOCAL-00019" summary="updated start()">
-      <created>1601282021577</created>
+    <task id="LOCAL-00019" summary="remove misleading JavaDoc">
+      <created>1601448226332</created>
       <option name="number" value="00019" />
       <option name="presentableId" value="LOCAL-00019" />
       <option name="project" value="LOCAL" />
-      <updated>1601282021577</updated>
+      <updated>1601448226332</updated>
     </task>
-    <task id="LOCAL-00020" summary="implement getWinner() and change start()">
-      <created>1601285584987</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1601285584987</updated>
-    </task>
-    <task id="LOCAL-00021" summary="change language level back to default">
-      <created>1601374256852</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1601374256852</updated>
-    </task>
-    <task id="LOCAL-00022" summary="implemented movePiece()">
-      <created>1601382942103</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1601382942103</updated>
-    </task>
-    <task id="LOCAL-00023" summary="updated movePiece() to fix bug">
-      <created>1601383311236</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1601383311236</updated>
-    </task>
-    <task id="LOCAL-00024" summary="implemented getAvailableMoves() in JesonMor.java">
-      <created>1601384462390</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1601384462390</updated>
-    </task>
-    <task id="LOCAL-00025" summary="put tie breaking condition in getWinner before NumMovesProtection check">
-      <created>1601470310826</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1601470310826</updated>
-    </task>
-    <task id="LOCAL-00026" summary="put all capture condition before tie breaking to fix capturing all condition">
-      <created>1601470485414</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1601470485414</updated>
-    </task>
-    <task id="LOCAL-00027" summary="implement getAvailableMoves() in Knight.java">
-      <created>1601473428748</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1601473428748</updated>
-    </task>
-    <task id="LOCAL-00028" summary="updated getAvailableMoves() in Knight.java to check null before checking piece of same player">
-      <created>1601474059081</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1601474059081</updated>
-    </task>
-    <task id="LOCAL-00029" summary="updated getAvailableMoves() for checking horse leg condition">
-      <created>1601552058296</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1601552058296</updated>
-    </task>
-    <task id="LOCAL-00030" summary="updated getAvailableMoves() implementation to eliminate invalid move">
-      <created>1601552477046</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1601552477046</updated>
-    </task>
-    <task id="LOCAL-00031" summary="updated getAvailableMoves() in Knight.java and Archer.java">
-      <created>1601554238648</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1601554238648</updated>
-    </task>
-    <task id="LOCAL-00032" summary="fix code style">
-      <created>1601555104894</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1601555104894</updated>
-    </task>
-    <task id="LOCAL-00033" summary="updated nextMove() and getAvailableMoves()">
-      <created>1601562700045</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1601562700045</updated>
-    </task>
-    <task id="LOCAL-00034" summary="fix getAvailableMoves() in JesonMor.java">
-      <created>1601563595900</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1601563595900</updated>
-    </task>
-    <task id="LOCAL-00035" summary="fix bug for tie breaking condition">
-      <created>1601568001214</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1601568001214</updated>
-    </task>
-    <task id="LOCAL-00036" summary="implemented createGame()">
-      <created>1601569391588</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1601569391588</updated>
-    </task>
-    <task id="LOCAL-00037" summary="changed nextMove() in RandomPlayer.java">
-      <created>1601569424684</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1601569424684</updated>
-    </task>
-    <task id="LOCAL-00038" summary="fix createGame() and nextMove()">
-      <created>1601570346340</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1601570346340</updated>
-    </task>
-    <task id="LOCAL-00039" summary="fix code style">
-      <created>1601571414267</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1601571414268</updated>
-    </task>
-    <task id="LOCAL-00040" summary="remove redundant statements">
-      <created>1601630370567</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1601630370567</updated>
-    </task>
-    <task id="LOCAL-00041" summary="updated implementation for checking valid moves">
-      <created>1601643366870</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1601643366870</updated>
-    </task>
-    <task id="LOCAL-00042" summary="add checking for piece ownership when checking valid moves">
-      <created>1601644411506</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1601644411506</updated>
-    </task>
-    <task id="LOCAL-00043" summary="fix bugs">
-      <created>1601645050242</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1601645050242</updated>
-    </task>
-    <task id="LOCAL-00044" summary="check MoveProtection in validation of move">
-      <created>1601646799999</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1601646799999</updated>
-    </task>
-    <task id="LOCAL-00045" summary="seperate Move validation to new method">
-      <created>1601651655439</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1601651655439</updated>
-    </task>
-    <option name="localTasksCounter" value="46" />
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -620,19 +371,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="master" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -641,114 +380,108 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="implement getWinner() and change start()" />
-    <MESSAGE value="change language level back to default" />
-    <MESSAGE value="implemented movePiece()" />
-    <MESSAGE value="updated movePiece() to fix bug" />
-    <MESSAGE value="implemented getAvailableMoves() in JesonMor.java" />
-    <MESSAGE value="put tie breaking condition in getWinner before NumMovesProtection check" />
-    <MESSAGE value="put all capture condition before tie breaking to fix capturing all condition" />
-    <MESSAGE value="implement getAvailableMoves() in Knight.java" />
-    <MESSAGE value="updated getAvailableMoves() in Knight.java to check null before checking piece of same player" />
-    <MESSAGE value="updated getAvailableMoves() for checking horse leg condition" />
-    <MESSAGE value="updated getAvailableMoves() implementation to eliminate invalid move" />
-    <MESSAGE value="updated getAvailableMoves() in Knight.java and Archer.java" />
-    <MESSAGE value="updated nextMove() and getAvailableMoves()" />
-    <MESSAGE value="fix getAvailableMoves() in JesonMor.java" />
-    <MESSAGE value="fix bug for tie breaking condition" />
-    <MESSAGE value="implemented createGame()" />
-    <MESSAGE value="changed nextMove() in RandomPlayer.java" />
-    <MESSAGE value="fix createGame() and nextMove()" />
-    <MESSAGE value="fix code style" />
-    <MESSAGE value="remove redundant statements" />
-    <MESSAGE value="updated implementation for checking valid moves" />
-    <MESSAGE value="add checking for piece ownership when checking valid moves" />
-    <MESSAGE value="fix bugs" />
-    <MESSAGE value="check MoveProtection in validation of move" />
-    <MESSAGE value="seperate Move validation to new method" />
-    <option name="LAST_COMMIT_MESSAGE" value="seperate Move validation to new method" />
+    <MESSAGE value="update" />
+    <MESSAGE value="make JavaDoc available in GitHub Page" />
+    <MESSAGE value="add FAQ" />
+    <MESSAGE value="add FAQ Q5" />
+    <MESSAGE value="small clarification on the upper bound of gameboard size" />
+    <MESSAGE value="add submission ddl" />
+    <MESSAGE value="add FAQ of corrupted ANSI color" />
+    <MESSAGE value="resize image" />
+    <MESSAGE value="clear specification on winning condition" />
+    <MESSAGE value="fix: typo in tests" />
+    <MESSAGE value="fix failed tests" />
+    <MESSAGE value="clarify updateScore" />
+    <MESSAGE value="fix typo" />
+    <MESSAGE value="remove misleading JavaDoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove misleading JavaDoc" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="375" y="105" key="#Project_Structure" timestamp="1601374216578">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="328" y="106" key="#Project_Structure" timestamp="1599619196773">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="375" y="105" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1601374216578" />
     <state x="328" y="106" key="#Project_Structure/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599619196773" />
-    <state x="533" y="190" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601654309938">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="464" y="125" width="1071" height="772" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601474765285">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="533" y="190" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601654309938" />
     <state x="304" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599619684599" />
-    <state x="304" y="187" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1600332917057" />
-    <state x="213" y="100" width="1539" height="847" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1601563924701">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="213" y="100" width="1539" height="847" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601563924701" />
-    <state x="673" y="235" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1601475148039">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="673" y="235" key="#com.intellij.ide.macro.MacrosDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601475148039" />
-    <state x="234" y="102" key="CommitChangelistDialog2" timestamp="1601027698586">
+    <state x="464" y="125" width="1071" height="772" key="#com.intellij.execution.impl.EditConfigurationsDialog/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1601474765285" />
+    <state x="234" y="102" key="CommitChangelistDialog2" timestamp="1601448226156">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="234" y="102" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1601027698586" />
     <state x="251" y="93" key="CommitChangelistDialog2/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599622186181" />
     <state x="234" y="102" key="CommitChangelistDialog2/624.-1057.1920.1057/0.0.1680.1050/-1296.-1057.1920.1057@0.0.1680.1050" timestamp="1599925282789" />
-    <state x="234" y="102" key="CommitChangelistDialog2/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1600436370163" />
-    <state x="310" y="126" width="1577" height="832" key="DiffContextDialog" timestamp="1601643662763">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="234" y="102" key="CommitChangelistDialog2/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1601448226156" />
+    <state x="165" y="93" width="1344" height="840" key="DiffContextDialog" timestamp="1600435910952">
+      <screen x="43" y="0" width="1637" height="1050" />
     </state>
-    <state x="310" y="126" width="1577" height="832" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601643662763" />
     <state x="165" y="93" key="DiffContextDialog/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620432334" />
     <state x="165" y="93" width="1344" height="840" key="DiffContextDialog/624.-1057.1920.1057/43.0.1637.1050/-1296.-1057.1920.1057@43.0.1637.1050" timestamp="1600435910952" />
-    <state width="1844" height="366" key="GridCell.Tab.0.bottom" timestamp="1601655202850">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1638" height="350" key="GridCell.Tab.0.bottom" timestamp="1601479149988">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1844" height="366" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601655202850" />
     <state width="1638" height="284" key="GridCell.Tab.0.bottom/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620487809" />
-    <state width="1638" height="284" key="GridCell.Tab.0.bottom/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1599628349154" />
-    <state width="1844" height="366" key="GridCell.Tab.0.center" timestamp="1601655202850">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1638" height="350" key="GridCell.Tab.0.bottom/624.-1057.1920.1057/0.0.1680.1050/-1296.-1057.1920.1057@0.0.1680.1050" timestamp="1601479149988" />
+    <state width="1638" height="350" key="GridCell.Tab.0.bottom/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1601475570048" />
+    <state width="1638" height="350" key="GridCell.Tab.0.center" timestamp="1601479149986">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1844" height="366" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601655202850" />
     <state width="1638" height="284" key="GridCell.Tab.0.center/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620487801" />
-    <state width="1638" height="284" key="GridCell.Tab.0.center/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1599628349152" />
-    <state width="1844" height="366" key="GridCell.Tab.0.left" timestamp="1601655202850">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1638" height="350" key="GridCell.Tab.0.center/624.-1057.1920.1057/0.0.1680.1050/-1296.-1057.1920.1057@0.0.1680.1050" timestamp="1601479149986" />
+    <state width="1638" height="350" key="GridCell.Tab.0.center/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1601475570046" />
+    <state width="1638" height="350" key="GridCell.Tab.0.left" timestamp="1601479149985">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1844" height="366" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601655202850" />
     <state width="1638" height="284" key="GridCell.Tab.0.left/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620487798" />
-    <state width="1638" height="284" key="GridCell.Tab.0.left/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1599628349151" />
-    <state width="1844" height="366" key="GridCell.Tab.0.right" timestamp="1601655202850">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1638" height="350" key="GridCell.Tab.0.left/624.-1057.1920.1057/0.0.1680.1050/-1296.-1057.1920.1057@0.0.1680.1050" timestamp="1601479149985" />
+    <state width="1638" height="350" key="GridCell.Tab.0.left/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1601475570045" />
+    <state width="1638" height="350" key="GridCell.Tab.0.right" timestamp="1601479149987">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1844" height="366" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601655202850" />
     <state width="1638" height="284" key="GridCell.Tab.0.right/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620487804" />
-    <state width="1638" height="284" key="GridCell.Tab.0.right/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1599628349153" />
-    <state x="328" y="106" key="SettingsEditor" timestamp="1601214074000">
+    <state width="1638" height="350" key="GridCell.Tab.0.right/624.-1057.1920.1057/0.0.1680.1050/-1296.-1057.1920.1057@0.0.1680.1050" timestamp="1601479149987" />
+    <state width="1638" height="350" key="GridCell.Tab.0.right/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1601475570047" />
+    <state width="1638" height="350" key="GridCell.Tab.1.bottom" timestamp="1601479149993">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="350" key="GridCell.Tab.1.bottom/624.-1057.1920.1057/0.0.1680.1050/-1296.-1057.1920.1057@0.0.1680.1050" timestamp="1601479149993" />
+    <state width="1638" height="350" key="GridCell.Tab.1.bottom/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1601475570051" />
+    <state width="1638" height="350" key="GridCell.Tab.1.center" timestamp="1601479149991">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="350" key="GridCell.Tab.1.center/624.-1057.1920.1057/0.0.1680.1050/-1296.-1057.1920.1057@0.0.1680.1050" timestamp="1601479149991" />
+    <state width="1638" height="350" key="GridCell.Tab.1.center/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1601475570050" />
+    <state width="1638" height="350" key="GridCell.Tab.1.left" timestamp="1601479149989">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="350" key="GridCell.Tab.1.left/624.-1057.1920.1057/0.0.1680.1050/-1296.-1057.1920.1057@0.0.1680.1050" timestamp="1601479149989" />
+    <state width="1638" height="350" key="GridCell.Tab.1.left/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1601475570049" />
+    <state width="1638" height="350" key="GridCell.Tab.1.right" timestamp="1601479149992">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="350" key="GridCell.Tab.1.right/624.-1057.1920.1057/0.0.1680.1050/-1296.-1057.1920.1057@0.0.1680.1050" timestamp="1601479149992" />
+    <state width="1638" height="350" key="GridCell.Tab.1.right/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1601475570051" />
+    <state x="316" y="106" key="SettingsEditor" timestamp="1601463514334">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="328" y="106" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1601214074000" />
     <state x="328" y="106" key="SettingsEditor/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599619404617" />
     <state x="328" y="106" key="SettingsEditor/624.-1057.1920.1057/0.0.1680.1050/-1296.-1057.1920.1057@0.0.1680.1050" timestamp="1599726074766" />
     <state x="366" y="106" key="SettingsEditor/624.-1057.1920.1057/47.0.1633.1050/-1296.-1057.1920.1057@47.0.1633.1050" timestamp="1600267765095" />
-    <state x="328" y="106" key="SettingsEditor/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1600957348670" />
-    <state x="503" y="262" width="1133" height="535" key="Vcs.Push.Dialog.v2" timestamp="1601651667145">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1601027700019" />
-    <state x="503" y="262" width="1133" height="535" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1601651667145" />
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599622187604" />
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2/624.-1057.1920.1057/0.0.1680.1050/-1296.-1057.1920.1057@0.0.1680.1050" timestamp="1599925284913" />
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1600436380199" />
-    <state x="636" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600148086022">
+    <state x="316" y="106" key="SettingsEditor/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1601463514334" />
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1601448890897">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="636" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1600148086022" />
-    <state x="746" y="428" width="648" height="224" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1601552072684">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1601215906968" />
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599622187604" />
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2/624.-1057.1920.1057/0.0.1680.1050/-1296.-1057.1920.1057@0.0.1680.1050" timestamp="1599925284913" />
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1601448890897" />
+    <state x="636" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1601215899901">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="746" y="428" width="648" height="224" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601552072684" />
+    <state x="636" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1680.1050@0.0.1680.1050" timestamp="1601215899901" />
+    <state x="636" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1600148086022" />
     <state x="509" y="374" key="git4idea.ui.GitTagDialog" timestamp="1599619834414">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -757,18 +490,5 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="245" y="189" key="new project wizard/0.0.1680.1050@0.0.1680.1050" timestamp="1599978032620" />
-    <state x="682" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1601641399975">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="682" y="228" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1601641399975" />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/COMP3021_2020Fall_PA1_Student_Version$castle_comp3021_assignment_protocol_in_COMP3021_2020Fall_PA1_Student_Version.ic" NAME="castle.comp3021.assignment.protocol in COMP3021-2020Fall-PA1-Student-Version Coverage Results" MODIFIED="1601653672539" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>castle.comp3021.assignment.protocol.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3021_2020Fall_PA1_Student_Version$Test.ic" NAME="Test Coverage Results" MODIFIED="1601654384685" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true" />
-    <SUITE FILE_PATH="coverage/COMP3021_2020Fall_PA1_Student_Version$GameTieBreakerTests.ic" NAME="GameTieBreakerTests Coverage Results" MODIFIED="1601564775126" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>castle.comp3021.assignment.protocol.*</FILTER>
-    </SUITE>
   </component>
 </project>
