@@ -222,6 +222,11 @@ public class JesonMor extends Game {
                 availableMove.remove(x);
                 continue;
             }
+            //check piece belong to player
+            if (!this.getPiece(originalX, originalY).getPlayer().equals(player)){
+                availableMove.remove(x);
+                continue;
+            }
 
             //check capturing own piece
             if (this.getPiece(destinationX, destinationY) != null){

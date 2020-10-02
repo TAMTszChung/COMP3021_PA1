@@ -65,6 +65,11 @@ public class RandomPlayer extends Player {
                 continue;
             }
 
+            //check piece belong to player
+            if (!game.getPiece(originalX, originalY).getPlayer().equals(this)){
+                continue;
+            }
+
             //check capturing own piece
             if (game.getPiece(destinationX, destinationY) != null){
                 if (game.getPiece(destinationX, destinationY).getPlayer()

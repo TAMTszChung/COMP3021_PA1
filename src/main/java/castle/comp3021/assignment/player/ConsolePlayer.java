@@ -95,6 +95,12 @@ public class ConsolePlayer extends Player {
                 continue;
             }
 
+            //check piece belong to player
+            if (!game.getPiece(originalX, originalY).getPlayer().equals(this)){
+                System.out.println("[Invalid Move]: Piece do not belong to player");
+                continue;
+            }
+
             //check capturing own piece
             if (game.getPiece(destinationX, destinationY) != null){
                 if (game.getPiece(destinationX, destinationY).getPlayer()
