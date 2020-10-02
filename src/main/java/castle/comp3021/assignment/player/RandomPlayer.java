@@ -54,19 +54,16 @@ public class RandomPlayer extends Player {
                     || inputdesY < 0
                     || inputdesX >= game.getConfiguration().getSize()
                     || inputdesY >= game.getConfiguration().getSize()) {
-                System.out.println("[Invalid Move]: place is out of boundary of gameboard");
                 continue;
             }
             if (game.getPiece(inputdesX, inputdesY) != null) {
                 if (game.getPiece(inputdesX, inputdesY).getPlayer()
                         .equals(game.getPiece(inputsourceX, inputsourceY).getPlayer())) {
-                    System.out.println("[Invalid Move]: piece cannot be captured by another piece belonging to the same player");
                     continue;
                 }
             }
 
             if (game.getPiece(inputsourceX, inputsourceY) == null) {
-                System.out.println("[Invalid Move]: No piece at s(" + inputsourceX + ", " + inputsourceY + ")");
                 continue;
             } else if (game.getPiece(inputsourceX, inputsourceY) instanceof Knight) {
                 var xShift = inputdesX - inputsourceX;
@@ -79,7 +76,6 @@ public class RandomPlayer extends Player {
                         && !(xShift == -2 && yShift == -1)
                         && !(xShift == 1 && yShift == -2)
                         && !(xShift == -1 && yShift == -2)) {
-                    System.out.println("[Invalid Move]: knight move rule is violated");
                     continue;
                 }
             }

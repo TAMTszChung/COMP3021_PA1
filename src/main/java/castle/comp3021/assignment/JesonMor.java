@@ -52,7 +52,6 @@ public class JesonMor extends Game {
             this.numMoves += 1;
             this.refreshOutput();
             winner = getWinner(currentPlayer,currentPiece,nextmove);
-
             // student implementation ends here
             if (winner != null) {
                 System.out.println();
