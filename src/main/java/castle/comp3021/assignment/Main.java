@@ -7,6 +7,7 @@ import castle.comp3021.assignment.player.RandomPlayer;
 import castle.comp3021.assignment.protocol.Configuration;
 import castle.comp3021.assignment.protocol.Game;
 import castle.comp3021.assignment.protocol.Player;
+import castle.comp3021.assignment.protocol.exception.InvalidConfigurationError;
 
 public class Main {
     /**
@@ -29,10 +30,22 @@ public class Main {
      */
     public static Game createGame(int size, int numMovesProtection) {
         // TODO student implementation
-        // The following lines are example of constructing a game object, you may modify them as you wish.
-        var userPlayer = new ConsolePlayer("UserPlayer");
-        var computerPlayer = new RandomPlayer("ComputerPlayer");
-        // we give
+        if (size < 3){
+            throw new InvalidConfigurationError("size of gameboard must be at least 3");
+        }
+        if (size%2 == 0){
+            throw new InvalidConfigurationError("size of gameboard must be an odd number");
+        }
+        if (size>26){
+            throw new InvalidConfigurationError("size of gameboard is at most 26");
+        }
+        if (numMovesProtection < 0){
+            throw new InvalidConfigurationError("number of moves with capture protection cannot be negative");
+        }
+
+        var userPlayer = new ConsolePlayer("White");
+        var computerPlayer = new RandomPlayer("Black");
+
         Configuration configuration = new Configuration(size, new Player[]{userPlayer, computerPlayer}, numMovesProtection);
         //initialize user pieces
         for (int i=0; i<size; i++){

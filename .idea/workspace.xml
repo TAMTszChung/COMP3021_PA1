@@ -32,6 +32,7 @@
   <component name="ChangeListManager">
     <list default="true" id="294addc6-b9fc-4824-9c4b-cacfd7251411" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/castle/comp3021/assignment/AdditionalTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/castle/comp3021/assignment/AdditionalTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -127,7 +128,7 @@
       <recent name="$PROJECT_DIR$/src/main" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.castle.comp3021.assignment.protocol in COMP3021-2020Fall-PA1-Student-Version">
+  <component name="RunManager" selected="JUnit.AdditionalTests">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="castle.comp3021.assignment.Main" />
       <module name="COMP3021-2020Fall-PA1-Student-Version" />
@@ -145,7 +146,7 @@
     <configuration name="AdditionalTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP3021-2020Fall-PA1-Student-Version" />
       <useClassPathOnly />
-      <extension name="coverage">
+      <extension name="coverage" sample_coverage="false">
         <pattern>
           <option name="PATTERN" value="castle.comp3021.assignment.*" />
           <option name="ENABLED" value="true" />
@@ -160,24 +161,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameMockPlayerIntegratedTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="COMP3021-2020Fall-PA1-Student-Version" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="castle.comp3021.assignment.protocol.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="castle.comp3021.assignment.protocol" />
-      <option name="MAIN_CLASS_NAME" value="castle.comp3021.assignment.protocol.GameMockPlayerIntegratedTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="GameTieBreakerTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP3021-2020Fall-PA1-Student-Version" />
-      <extension name="coverage">
+      <useClassPathOnly />
+      <extension name="coverage" sample_coverage="false">
         <pattern>
           <option name="PATTERN" value="castle.comp3021.assignment.protocol.*" />
           <option name="ENABLED" value="true" />
@@ -185,14 +172,17 @@
       </extension>
       <option name="PACKAGE_NAME" value="castle.comp3021.assignment.protocol" />
       <option name="MAIN_CLASS_NAME" value="castle.comp3021.assignment.protocol.GameTieBreakerTests" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="PARAMETERS" value="" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="GameUnitTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="COMP3021-2020Fall-PA1-Student-Version" />
-      <extension name="coverage">
+      <useClassPathOnly />
+      <extension name="coverage" sample_coverage="false">
         <pattern>
           <option name="PATTERN" value="castle.comp3021.assignment.protocol.*" />
           <option name="ENABLED" value="true" />
@@ -200,7 +190,9 @@
       </extension>
       <option name="PACKAGE_NAME" value="castle.comp3021.assignment.protocol" />
       <option name="MAIN_CLASS_NAME" value="castle.comp3021.assignment.protocol.GameUnitTests" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="PARAMETERS" value="" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -236,10 +228,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PA1_obfuscated.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/artifacts/PA1_obfuscated.jar" />
+      <option name="PROGRAM_PARAMETERS" value="25 0" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Application.Main" />
+      <item itemvalue="JAR Application.PA1_obfuscated.jar" />
       <item itemvalue="JUnit.Test" />
-      <item itemvalue="JUnit.GameMockPlayerIntegratedTests" />
       <item itemvalue="JUnit.GameTieBreakerTests" />
       <item itemvalue="JUnit.GameUnitTests" />
       <item itemvalue="JUnit.AdditionalTests" />
@@ -247,11 +245,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.castle.comp3021.assignment.protocol in COMP3021-2020Fall-PA1-Student-Version" />
         <item itemvalue="JUnit.AdditionalTests" />
+        <item itemvalue="JAR Application.PA1_obfuscated.jar" />
+        <item itemvalue="JUnit.castle.comp3021.assignment.protocol in COMP3021-2020Fall-PA1-Student-Version" />
         <item itemvalue="JUnit.GameUnitTests" />
         <item itemvalue="JUnit.GameTieBreakerTests" />
-        <item itemvalue="JUnit.GameMockPlayerIntegratedTests" />
       </list>
     </recent_temporary>
   </component>
@@ -676,10 +674,10 @@
     </state>
     <state x="375" y="105" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1601374216578" />
     <state x="328" y="106" key="#Project_Structure/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599619196773" />
-    <state x="347" y="185" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601651899460">
+    <state x="533" y="190" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601654309938">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="347" y="185" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601651899460" />
+    <state x="533" y="190" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601654309938" />
     <state x="304" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599619684599" />
     <state x="304" y="187" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1600332917057" />
     <state x="213" y="100" width="1539" height="847" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1601563924701">
@@ -703,28 +701,28 @@
     <state x="310" y="126" width="1577" height="832" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601643662763" />
     <state x="165" y="93" key="DiffContextDialog/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620432334" />
     <state x="165" y="93" width="1344" height="840" key="DiffContextDialog/624.-1057.1920.1057/43.0.1637.1050/-1296.-1057.1920.1057@43.0.1637.1050" timestamp="1600435910952" />
-    <state width="1569" height="419" key="GridCell.Tab.0.bottom" timestamp="1601651770854">
+    <state width="1844" height="366" key="GridCell.Tab.0.bottom" timestamp="1601655202850">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1569" height="419" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601651770854" />
+    <state width="1844" height="366" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601655202850" />
     <state width="1638" height="284" key="GridCell.Tab.0.bottom/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620487809" />
     <state width="1638" height="284" key="GridCell.Tab.0.bottom/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1599628349154" />
-    <state width="1569" height="419" key="GridCell.Tab.0.center" timestamp="1601651770854">
+    <state width="1844" height="366" key="GridCell.Tab.0.center" timestamp="1601655202850">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1569" height="419" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601651770854" />
+    <state width="1844" height="366" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601655202850" />
     <state width="1638" height="284" key="GridCell.Tab.0.center/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620487801" />
     <state width="1638" height="284" key="GridCell.Tab.0.center/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1599628349152" />
-    <state width="1569" height="419" key="GridCell.Tab.0.left" timestamp="1601651770854">
+    <state width="1844" height="366" key="GridCell.Tab.0.left" timestamp="1601655202850">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1569" height="419" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601651770854" />
+    <state width="1844" height="366" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601655202850" />
     <state width="1638" height="284" key="GridCell.Tab.0.left/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620487798" />
     <state width="1638" height="284" key="GridCell.Tab.0.left/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1599628349151" />
-    <state width="1569" height="419" key="GridCell.Tab.0.right" timestamp="1601651770854">
+    <state width="1844" height="366" key="GridCell.Tab.0.right" timestamp="1601655202850">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1569" height="419" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601651770854" />
+    <state width="1844" height="366" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601655202850" />
     <state width="1638" height="284" key="GridCell.Tab.0.right/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620487804" />
     <state width="1638" height="284" key="GridCell.Tab.0.right/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1599628349153" />
     <state x="328" y="106" key="SettingsEditor" timestamp="1601214074000">
@@ -765,10 +763,10 @@
     <state x="682" y="228" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1601641399975" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/COMP3021_2020Fall_PA1_Student_Version$castle_comp3021_assignment_protocol_in_COMP3021_2020Fall_PA1_Student_Version.ic" NAME="castle.comp3021.assignment.protocol in COMP3021-2020Fall-PA1-Student-Version Coverage Results" MODIFIED="1601651788468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/COMP3021_2020Fall_PA1_Student_Version$castle_comp3021_assignment_protocol_in_COMP3021_2020Fall_PA1_Student_Version.ic" NAME="castle.comp3021.assignment.protocol in COMP3021-2020Fall-PA1-Student-Version Coverage Results" MODIFIED="1601653672539" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
       <FILTER>castle.comp3021.assignment.protocol.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3021_2020Fall_PA1_Student_Version$Test.ic" NAME="Test Coverage Results" MODIFIED="1601651760551" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/COMP3021_2020Fall_PA1_Student_Version$Test.ic" NAME="Test Coverage Results" MODIFIED="1601654384685" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/COMP3021_2020Fall_PA1_Student_Version$GameTieBreakerTests.ic" NAME="GameTieBreakerTests Coverage Results" MODIFIED="1601564775126" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>castle.comp3021.assignment.protocol.*</FILTER>
     </SUITE>
