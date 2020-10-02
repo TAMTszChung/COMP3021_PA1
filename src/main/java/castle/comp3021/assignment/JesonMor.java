@@ -198,118 +198,120 @@ public class JesonMor extends Game {
         }
 
         for (int x=availableMove.size()-1; x>=0; x--){
-            var originalX = availableMove.get(x).getSource().x();
-            var originalY = availableMove.get(x).getSource().y();
-            var destinationX = availableMove.get(x).getDestination().x();
-            var destinationY = availableMove.get(x).getDestination().y();
-
-            //validate the move
-            //out of boundary
-            if (originalX<0
-                    ||originalY<0
-                    ||originalX>=this.getConfiguration().getSize()
-                    ||originalY>=this.getConfiguration().getSize()
-                    || destinationX<0
-                    || destinationY<0
-                    || destinationX>=this.getConfiguration().getSize()
-                    || destinationY>=this.getConfiguration().getSize()){
+            if (!checkMoveValidity(availableMove.get(x), player)){
                 availableMove.remove(x);
-                continue;
-            }
-
-            //check any piece at original location
-            if (this.getPiece(originalX, originalY) == null){
-                availableMove.remove(x);
-                continue;
-            }
-            //check piece belong to player
-            if (!this.getPiece(originalX, originalY).getPlayer().equals(player)){
-                availableMove.remove(x);
-                continue;
-            }
-
-            //check capturing own piece
-            if (this.getPiece(destinationX, destinationY) != null){
-                if (this.getPiece(destinationX, destinationY).getPlayer()
-                        .equals(this.getPiece(originalX, originalY).getPlayer())){
-                    availableMove.remove(x);
-                    continue;
-                }
-            }
-
-            var xShift = destinationX - originalX;
-            var yShift = destinationY - originalY;
-            if (this.getPiece(originalX, originalY) instanceof Knight){
-                //check moving rule of Knight
-                if (Math.abs(xShift) == 2 && Math.abs(yShift) == 1){
-                    var legPosX = (destinationX + originalX)/2;
-                    if (this.getPiece(legPosX,originalY) != null){
-                        availableMove.remove(x);
-                        continue;
-                    }
-                }else if (Math.abs(xShift) == 1 && Math.abs(yShift) == 2){
-                    var legPosY = (destinationY + originalY)/2;
-                    if (this.getPiece(originalX,legPosY) != null){
-                        availableMove.remove(x);
-                        continue;
-                    }
-                }else{
-                    availableMove.remove(x);
-                    continue;
-                }
-            }else if(this.getPiece(originalX, originalY) instanceof Archer){
-                //check archer
-                //check moving rule of archer
-                if (Math.abs(xShift) > 0 && Math.abs(yShift) > 0){
-                    availableMove.remove(x);
-                    continue;
-                }
-                var numPiecebetween = 0;
-                if (xShift<0 && yShift==0){
-                    for (int i=originalX-1; i>destinationX; i--){
-                        if (this.getPiece(i,originalY) != null){
-                            numPiecebetween += 1;
-                        }
-                    }
-                }else if(xShift>0 && yShift==0){
-                    for (int i=originalX+1; i<destinationX; i++){
-                        if (this.getPiece(i,originalY) != null){
-                            numPiecebetween += 1;
-                        }
-                    }
-                }else if (xShift==0 && yShift<0){
-                    for (int i=originalY-1; i>destinationY; i--){
-                        if (this.getPiece(originalX,i) != null){
-                            numPiecebetween += 1;
-                        }
-                    }
-                }else if (xShift==0 && yShift>0){
-                    for (int i=originalY+1; i<destinationY; i++){
-                        if (this.getPiece(originalX,i) != null){
-                            numPiecebetween += 1;
-                        }
-                    }
-                }else{
-                    availableMove.remove(x);
-                    continue;
-                }
-
-                if (numPiecebetween >= 2){
-                    availableMove.remove(x);
-                    continue;
-                }else if (numPiecebetween == 1){
-                    if (this.getPiece(destinationX,destinationY) == null){
-                        availableMove.remove(x);
-                        continue;
-                    }else if(this.getPiece(destinationX,destinationY).getPlayer()
-                            .equals(this.getPiece(originalX, originalY).getPlayer())){
-                        availableMove.remove(x);
-                        continue;
-                    }
-                }
             }
         }
 
         return availableMove.toArray(new Move[availableMove.size()]);
+    }
+
+    private boolean checkMoveValidity(Move move, Player player){
+        var originalX = move.getSource().x();
+        var originalY = move.getSource().y();
+        var destinationX = move.getDestination().x();
+        var destinationY = move.getDestination().y();
+
+        //validate the move
+        //out of boundary
+        if (originalX<0
+                ||originalY<0
+                ||originalX>=this.getConfiguration().getSize()
+                ||originalY>=this.getConfiguration().getSize()
+                || destinationX<0
+                || destinationY<0
+                || destinationX>=this.getConfiguration().getSize()
+                || destinationY>=this.getConfiguration().getSize()){
+            return false;
+        }
+
+        //no piece at origin
+        if (this.getPiece(originalX, originalY) == null){
+            return false;
+        }
+
+        //check piece belong to player
+        if (!this.getPiece(originalX, originalY).getPlayer().equals(player)){
+            return false;
+        }
+
+
+        //check capturing
+        if (this.getPiece(destinationX, destinationY) != null){
+            if (this.getPiece(destinationX, destinationY).getPlayer()
+                    .equals(this.getPiece(originalX, originalY).getPlayer())){
+                //capturing own piece
+                return false;
+            }else if (!this.getPiece(destinationX,destinationY).getPlayer().equals(this.getPiece(originalX,originalY).getPlayer())
+                    && this.getNumMoves() < this.getConfiguration().getNumMovesProtection()){
+                //capturing enemy within NumMovesProtection
+                return false;
+            }
+        }
+
+        var xShift = destinationX - originalX;
+        var yShift = destinationY - originalY;
+        if (this.getPiece(originalX, originalY) instanceof Knight){
+            //check moving rule of Knight
+            if (Math.abs(xShift) == 2 && Math.abs(yShift) == 1){
+                var legPosX = (destinationX + originalX)/2;
+                if (this.getPiece(legPosX,originalY) != null){
+                    return false;
+                }
+            }else if (Math.abs(xShift) == 1 && Math.abs(yShift) == 2){
+                var legPosY = (destinationY + originalY)/2;
+                if (this.getPiece(originalX,legPosY) != null){
+                    return false;
+                }
+            }else{
+                return false;
+            }
+        }else if(this.getPiece(originalX, originalY) instanceof Archer){
+            //check archer
+            //check moving rule of archer
+            if (Math.abs(xShift) > 0 && Math.abs(yShift) > 0){
+                return false;
+            }
+            var numPiecebetween = 0;
+            if (xShift<0 && yShift==0){
+                for (int i=originalX-1; i>destinationX; i--){
+                    if (this.getPiece(i,originalY) != null){
+                        numPiecebetween += 1;
+                    }
+                }
+            }else if(xShift>0 && yShift==0){
+                for (int i=originalX+1; i<destinationX; i++){
+                    if (this.getPiece(i,originalY) != null){
+                        numPiecebetween += 1;
+                    }
+                }
+            }else if (xShift==0 && yShift<0){
+                for (int i=originalY-1; i>destinationY; i--){
+                    if (this.getPiece(originalX,i) != null){
+                        numPiecebetween += 1;
+                    }
+                }
+            }else if (xShift==0 && yShift>0){
+                for (int i=originalY+1; i<destinationY; i++){
+                    if (this.getPiece(originalX,i) != null){
+                        numPiecebetween += 1;
+                    }
+                }
+            }else{
+                return false;
+            }
+
+            if (numPiecebetween >= 2){
+                return false;
+            }else if (numPiecebetween == 1){
+                if (this.getPiece(destinationX,destinationY) == null){
+                    return false;
+                }else if(this.getPiece(destinationX,destinationY).getPlayer()
+                        .equals(this.getPiece(originalX, originalY).getPlayer())){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }

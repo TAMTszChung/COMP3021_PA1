@@ -134,61 +134,101 @@ public class Archer extends Piece {
         }
 
         for (int x=availableMove.size()-1; x>=0;x--){
-            //check archer
-            //check moving rule of archer
-            var originalX = availableMove.get(x).getSource().x();
-            var originalY = availableMove.get(x).getSource().y();
-            var destinationX = availableMove.get(x).getDestination().x();
-            var destinationY = availableMove.get(x).getDestination().y();
-
-            var xShift = destinationX - originalX;
-            var yShift = destinationY - originalY;
-
-            if (Math.abs(xShift) > 0 && Math.abs(yShift) > 0){
+            if (!checkMoveValidity(game, availableMove.get(x))){
                 availableMove.remove(x);
-                continue;
-            }
-            var numPiecebetween = 0;
-            if (xShift<0 && yShift==0){
-                for (int i=originalX-1; i>destinationX; i--){
-                    if (game.getPiece(i,originalY) != null){
-                        numPiecebetween += 1;
-                    }
-                }
-            }else if(xShift>0 && yShift==0){
-                for (int i=originalX+1; i<destinationX; i++){
-                    if (game.getPiece(i,originalY) != null){
-                        numPiecebetween += 1;
-                    }
-                }
-            }else if (xShift==0 && yShift<0){
-                for (int i=originalY-1; i>destinationY; i--){
-                    if (game.getPiece(originalX,i) != null){
-                        numPiecebetween += 1;
-                    }
-                }
-            }else if (xShift==0 && yShift>0){
-                for (int i=originalY+1; i<destinationY; i++){
-                    if (game.getPiece(originalX,i) != null){
-                        numPiecebetween += 1;
-                    }
-                }
-            }else{
-                availableMove.remove(x);
-                continue;
-            }
-
-            if (numPiecebetween >= 2){
-                availableMove.remove(x);
-                continue;
-            }else if (numPiecebetween == 1
-                    && game.getPiece(destinationX,destinationY).getPlayer()
-                    .equals(game.getPiece(originalX, originalY).getPlayer())
-                    && game.getNumMoves() < game.getConfiguration().getNumMovesProtection()){
-                availableMove.remove(x);
-                continue;
             }
         }
+
         return availableMove.toArray(new Move[availableMove.size()]);
+    }
+
+    private boolean checkMoveValidity(Game game, Move move){
+        var originalX = move.getSource().x();
+        var originalY = move.getSource().y();
+        var destinationX = move.getDestination().x();
+        var destinationY = move.getDestination().y();
+
+        var xShift = destinationX - originalX;
+        var yShift = destinationY - originalY;
+
+        //out of bound
+        if (originalX<0
+                ||originalY<0
+                ||originalX>=game.getConfiguration().getSize()
+                ||originalY>=game.getConfiguration().getSize()
+                || destinationX<0
+                || destinationY<0
+                || destinationX>=game.getConfiguration().getSize()
+                || destinationY>=game.getConfiguration().getSize()){
+            return false;
+        }
+
+        //no piece at origin
+        if (game.getPiece(originalX,originalY) == null){
+            return false;
+        }
+
+        //capturing enemy within NumMovesProtection
+        if (game.getPiece(destinationX,destinationY) != null
+                && !game.getPiece(destinationX,destinationY).getPlayer().equals(game.getPiece(originalX,originalY).getPlayer())
+                && game.getNumMoves() < game.getConfiguration().getNumMovesProtection()){
+            return false;
+        }
+
+        //check capturing
+        if (game.getPiece(destinationX,destinationY) != null){
+            if (game.getPiece(destinationX,destinationY).getPlayer().equals(game.getPiece(originalX,originalY).getPlayer())){
+                //capturing own piece
+                return false;
+            }else if (!game.getPiece(destinationX,destinationY).getPlayer().equals(game.getPiece(originalX,originalY).getPlayer())
+                    && game.getNumMoves() < game.getConfiguration().getNumMovesProtection()){
+                //capturing enemy within NumMovesProtection
+                return false;
+            }
+        }
+
+        if (Math.abs(xShift) > 0 && Math.abs(yShift) > 0){
+            return false;
+        }
+        var numPiecebetween = 0;
+        if (xShift<0 && yShift==0){
+            for (int i=originalX-1; i>destinationX; i--){
+                if (game.getPiece(i,originalY) != null){
+                    numPiecebetween += 1;
+                }
+            }
+        }else if(xShift>0 && yShift==0){
+            for (int i=originalX+1; i<destinationX; i++){
+                if (game.getPiece(i,originalY) != null){
+                    numPiecebetween += 1;
+                }
+            }
+        }else if (xShift==0 && yShift<0){
+            for (int i=originalY-1; i>destinationY; i--){
+                if (game.getPiece(originalX,i) != null){
+                    numPiecebetween += 1;
+                }
+            }
+        }else if (xShift==0 && yShift>0){
+            for (int i=originalY+1; i<destinationY; i++){
+                if (game.getPiece(originalX,i) != null){
+                    numPiecebetween += 1;
+                }
+            }
+        }else{
+            return false;
+        }
+
+        if (numPiecebetween >= 2){
+            return false;
+        }else if (numPiecebetween == 1) {
+            if (game.getPiece(destinationX, destinationY) == null) {
+                return false;
+            } else if (game.getPiece(destinationX, destinationY).getPlayer()
+                    .equals(game.getPiece(originalX, originalY).getPlayer())) {
+                return false;
+            }
+        }
+        return true;
     }
 }

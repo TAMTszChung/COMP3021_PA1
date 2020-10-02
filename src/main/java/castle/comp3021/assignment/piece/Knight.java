@@ -56,43 +56,69 @@ public class Knight extends Piece {
 
         //validation
         for (int i=availableMove.size()-1; i>=0;i--){
-            var originalx = availableMove.get(i).getSource().x();
-            var originaly = availableMove.get(i).getSource().y();
-            var destinationx = availableMove.get(i).getDestination().x();
-            var destinationy = availableMove.get(i).getDestination().y();
-
-            if (destinationx<0|| destinationy<0
-                    || destinationx>=game.getConfiguration().getSize() || destinationy>=game.getConfiguration().getSize()){
-                availableMove.remove(i);
-                continue;
-            }
-            if (game.getPiece(destinationx,destinationy) != null
-                    && game.getPiece(destinationx,destinationy).getPlayer().
-                    equals(game.getPiece(originalx,originaly).getPlayer())
-                    && game.getNumMoves() < game.getConfiguration().getNumMovesProtection()){
-                availableMove.remove(i);
-                continue;
-            }
-
-            var xShift = destinationx - originalx;
-            var yShift = destinationy - originaly;
-            if (Math.abs(xShift) == 2 && Math.abs(yShift) == 1){
-                var legPosX = (destinationx + originalx)/2;
-                var legPosY = originaly;
-                if (game.getPiece(legPosX,legPosY) != null){
-                        availableMove.remove(i);
-                }
-            }else if (Math.abs(xShift) == 1 && Math.abs(yShift) == 2){
-                var legPosX = originalx;
-                var legPosY = (destinationy + originaly)/2;
-                if (game.getPiece(legPosX,legPosY) != null){
-                        availableMove.remove(i);
-                }
-            }else{
+            if (!checkMoveValidity(game, availableMove.get(i))){
                 availableMove.remove(i);
             }
         }
 
         return availableMove.toArray(new Move[availableMove.size()]);
+    }
+
+    private boolean checkMoveValidity(Game game, Move move){
+        var originalX = move.getSource().x();
+        var originalY = move.getSource().y();
+        var destinationX = move.getDestination().x();
+        var destinationY = move.getDestination().y();
+
+        //out of bound
+        if (originalX<0
+                ||originalY<0
+                ||originalX>=game.getConfiguration().getSize()
+                ||originalY>=game.getConfiguration().getSize()
+                || destinationX<0
+                || destinationY<0
+                || destinationX>=game.getConfiguration().getSize()
+                || destinationY>=game.getConfiguration().getSize()){
+            return false;
+        }
+
+        //no piece at origin
+        if (game.getPiece(originalX,originalY) == null){
+            return false;
+        }
+
+
+        //check capturing
+        if (game.getPiece(destinationX,destinationY) != null){
+            if (game.getPiece(destinationX,destinationY).getPlayer().equals(game.getPiece(originalX,originalY).getPlayer())){
+                //capturing own piece
+                return false;
+            }else if (!game.getPiece(destinationX,destinationY).getPlayer().equals(game.getPiece(originalX,originalY).getPlayer())
+                    && game.getNumMoves() < game.getConfiguration().getNumMovesProtection()){
+                //capturing enemy within NumMovesProtection
+                return false;
+            }
+        }
+
+        var xShift = destinationX - originalX;
+        var yShift = destinationY - originalY;
+        //blocking condition
+        if (Math.abs(xShift) == 2 && Math.abs(yShift) == 1){
+            var legPosX = (destinationX + originalX)/2;
+            var legPosY = originalY;
+            if (game.getPiece(legPosX,legPosY) != null){
+                return false;
+            }
+        }else if (Math.abs(xShift) == 1 && Math.abs(yShift) == 2){
+            var legPosX = originalX;
+            var legPosY = (destinationY + originalY)/2;
+            if (game.getPiece(legPosX,legPosY) != null){
+                return false;
+            }
+        }else{
+            //violate Knight move rule
+            return false;
+        }
+        return true;
     }
 }
