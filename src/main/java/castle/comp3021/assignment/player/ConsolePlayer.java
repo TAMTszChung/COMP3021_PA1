@@ -1,5 +1,6 @@
 package castle.comp3021.assignment.player;
 
+import castle.comp3021.assignment.piece.Archer;
 import castle.comp3021.assignment.piece.Knight;
 import castle.comp3021.assignment.protocol.*;
 import org.jetbrains.annotations.NotNull;
@@ -56,56 +57,123 @@ public class ConsolePlayer extends Player {
                 System.out.println("[Invalid Move]: Incorrect format");
                 continue;
             }
-            //split the input into 2 string for location and trim white space
+            //create the move
             String[] locations = userInput.split("->");
             for (int i=0;i< locations.length;i++){
                 locations[i] = locations[i].trim();
             }
 
-            var inputsourceX = (locations[0].substring(0,1).toLowerCase().charAt(0)-'a');
-            var inputsourceY = Integer.parseInt(locations[0].substring(1))-1;
-            var inputdesX = (locations[1].substring(0,1).toLowerCase().charAt(0)-'a');
-            var inputdesY = Integer.parseInt(locations[1].substring(1))-1;
+            var inputoriginalX = (locations[0].substring(0,1).toLowerCase().charAt(0)-'a');
+            var inputoriginalY = Integer.parseInt(locations[0].substring(1))-1;
+            var inputdestinationX = (locations[1].substring(0,1).toLowerCase().charAt(0)-'a');
+            var inputdestinationY = Integer.parseInt(locations[1].substring(1))-1;
 
-            if (inputsourceX<0
-                    ||inputsourceY<0
-                    ||inputsourceX>=game.getConfiguration().getSize()
-                    ||inputsourceY>=game.getConfiguration().getSize()
-                    || inputdesX<0
-                    || inputdesY<0
-                    || inputdesX>=game.getConfiguration().getSize()
-                    || inputdesY>=game.getConfiguration().getSize()){
+            Move tempMove = new Move(inputoriginalX,inputoriginalY,inputdestinationX,inputdestinationY);
+
+            var originalX = tempMove.getSource().x();
+            var originalY = tempMove.getSource().y();
+            var destinationX = tempMove.getDestination().x();
+            var destinationY = tempMove.getDestination().y();
+
+            //validate the move
+            //out of boundary
+            if (originalX<0
+                    ||originalY<0
+                    ||originalX>=game.getConfiguration().getSize()
+                    ||originalY>=game.getConfiguration().getSize()
+                    || destinationX<0
+                    || destinationY<0
+                    || destinationX>=game.getConfiguration().getSize()
+                    || destinationY>=game.getConfiguration().getSize()){
                 System.out.println("[Invalid Move]: place is out of boundary of gameboard");
                 continue;
             }
-            if (game.getPiece(inputdesX, inputdesY) != null){
-                if (game.getPiece(inputdesX, inputdesY).getPlayer()
-                        .equals(game.getPiece(inputsourceX, inputsourceY).getPlayer())){
+
+            //check any piece at original location
+            if (game.getPiece(originalX, originalY) == null){
+                System.out.println("[Invalid Move]: No piece at s(" + originalX + ", " + originalY + ")");
+                continue;
+            }
+
+            //check capturing own piece
+            if (game.getPiece(destinationX, destinationY) != null){
+                if (game.getPiece(destinationX, destinationY).getPlayer()
+                        .equals(game.getPiece(originalX, originalY).getPlayer())){
                     System.out.println("[Invalid Move]: piece cannot be captured by another piece belonging to the same player");
                     continue;
                 }
             }
 
-            if (game.getPiece(inputsourceX, inputsourceY) == null){
-                System.out.println("[Invalid Move]: No piece at s(" + inputsourceX + ", " + inputsourceY + ")");
-                continue;
-            }else if (game.getPiece(inputsourceX, inputsourceY) instanceof Knight){
-                var xShift = inputdesX - inputsourceX;
-                var yShift = inputdesY - inputsourceY;
-                if (!(xShift==1 && yShift==2)
-                        && !(xShift==-1 && yShift==2)
-                        && !(xShift==2 && yShift==1)
-                        && !(xShift==-2 && yShift==1)
-                        && !(xShift==2 && yShift==-1)
-                        && !(xShift==-2 && yShift==-1)
-                        && !(xShift==1 && yShift==-2)
-                        && !(xShift==-1 && yShift==-2)){
+            var xShift = destinationX - originalX;
+            var yShift = destinationY - originalY;
+            if (game.getPiece(originalX, originalY) instanceof Knight){
+                //check moving rule of Knight
+                if (Math.abs(xShift) == 2 && Math.abs(yShift) == 1){
+                    var legPosX = (destinationX + originalX)/2;
+                    var legPosY = originalY;
+                    if (game.getPiece(legPosX,legPosY) != null){
+                        System.out.println("[Invalid Move]: knight is blocked by another piece");
+                        continue;
+                    }
+                }else if (Math.abs(xShift) == 1 && Math.abs(yShift) == 2){
+                    var legPosX = originalX;
+                    var legPosY = (destinationY + originalY)/2;
+                    if (game.getPiece(legPosX,legPosY) != null){
+                        System.out.println("[Invalid Move]: knight is blocked by another piece");
+                        continue;
+                    }
+                }else{
                     System.out.println("[Invalid Move]: knight move rule is violated");
+                    continue;
+                }
+            }else if(game.getPiece(originalX, originalY) instanceof Archer){
+                //check archer
+                //check moving rule of archer
+                if (Math.abs(xShift) > 0 && Math.abs(yShift) > 0){
+                    System.out.println("[Invalid Move]: Archer move rule is violated");
+                    continue;
+                }
+                var numPiecebetween = 0;
+                if (xShift<0 && yShift==0){
+                    for (int i=originalX-1; i>destinationX; i--){
+                        if (game.getPiece(i,originalY) != null){
+                            numPiecebetween += 1;
+                        }
+                    }
+                }else if(xShift>0 && yShift==0){
+                    for (int i=originalX+1; i<destinationX; i++){
+                        if (game.getPiece(i,originalY) != null){
+                            numPiecebetween += 1;
+                        }
+                    }
+                }else if (xShift==0 && yShift<0){
+                    for (int i=originalY-1; i>destinationY; i--){
+                        if (game.getPiece(originalX,i) != null){
+                            numPiecebetween += 1;
+                        }
+                    }
+                }else if (xShift==0 && yShift>0){
+                    for (int i=originalY+1; i<destinationY; i++){
+                        if (game.getPiece(originalX,i) != null){
+                            numPiecebetween += 1;
+                        }
+                    }
+                }else{
+                    System.out.println("[Invalid Move]: Archer move rule is violated");
+                    continue;
+                }
+
+                if (numPiecebetween >= 2){
+                    System.out.println("[Invalid Move]: Archer move rule is violated");
+                    continue;
+                }else if (numPiecebetween == 1
+                        && game.getPiece(destinationX,destinationY).getPlayer()
+                        .equals(game.getPiece(originalX, originalY).getPlayer())){
+                    System.out.println("[Invalid Move]: Archer move rule is violated");
                     continue;
                 }
             }
 
-            Move tempMove = new Move(inputsourceX,inputsourceY,inputdesX,inputdesY);
             ArrayList<Move> availMoves =
                     new ArrayList<Move>(Arrays.asList(availableMoves));
             if (!availMoves.contains(tempMove)){

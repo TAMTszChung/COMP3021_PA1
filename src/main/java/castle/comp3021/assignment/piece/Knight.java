@@ -54,6 +54,7 @@ public class Knight extends Piece {
         availableMove.add(new Move(source, new Place(sourceX-2, sourceY+1)));
         availableMove.add(new Move(source, new Place(sourceX-1, sourceY+2)));
 
+        //validation
         for (int i=availableMove.size()-1; i>=0;i--){
             var originalx = availableMove.get(i).getSource().x();
             var originaly = availableMove.get(i).getSource().y();
@@ -71,24 +72,23 @@ public class Knight extends Piece {
                 availableMove.remove(i);
                 continue;
             }
-            var xShift = availableMove.get(i).getDestination().x() - availableMove.get(i).getSource().x();
-            var yShift = availableMove.get(i).getDestination().y() - availableMove.get(i).getSource().y();
-            if (Math.abs(xShift) == 2){
-                if (xShift < 0){
-                    if (game.getPiece(originalx-1,originaly) != null)
+
+            var xShift = destinationx - originalx;
+            var yShift = destinationy - originaly;
+            if (Math.abs(xShift) == 2 && Math.abs(yShift) == 1){
+                var legPosX = (destinationx + originalx)/2;
+                var legPosY = originaly;
+                if (game.getPiece(legPosX,legPosY) != null){
                         availableMove.remove(i);
-                }else{
-                    if (game.getPiece(originalx+1,originaly) != null)
+                }
+            }else if (Math.abs(xShift) == 1 && Math.abs(yShift) == 2){
+                var legPosX = originalx;
+                var legPosY = (destinationy + originaly)/2;
+                if (game.getPiece(legPosX,legPosY) != null){
                         availableMove.remove(i);
                 }
             }else{
-                if (yShift < 0){
-                    if (game.getPiece(originalx,originaly-1) != null)
-                        availableMove.remove(i);
-                }else{
-                    if (game.getPiece(originalx,originaly+1) != null)
-                        availableMove.remove(i);
-                }
+                availableMove.remove(i);
             }
         }
 

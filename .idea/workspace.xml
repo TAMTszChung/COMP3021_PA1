@@ -33,6 +33,9 @@
     <list default="true" id="294addc6-b9fc-4824-9c4b-cacfd7251411" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/JesonMor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/JesonMor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/piece/Archer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/piece/Archer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/piece/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/piece/Knight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/player/ConsolePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/player/ConsolePlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/player/RandomPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/castle/comp3021/assignment/player/RandomPlayer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -220,12 +223,12 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.ConsolePlayerTests" />
-      <item itemvalue="JUnit.Test" />
-      <item itemvalue="JUnit.castle.comp3021.assignment.mock in COMP3021-2020Fall-PA1-Student-Version" />
-      <item itemvalue="JUnit.castle.comp3021.assignment.protocol in COMP3021-2020Fall-PA1-Student-Version" />
-      <item itemvalue="JUnit.castle.comp3021.assignment.util in COMP3021-2020Fall-PA1-Student-Version" />
       <item itemvalue="JAR Application.PA1_obfuscated.jar" />
+      <item itemvalue="JUnit.Test" />
+      <item itemvalue="JUnit.ConsolePlayerTests" />
+      <item itemvalue="JUnit.castle.comp3021.assignment.protocol in COMP3021-2020Fall-PA1-Student-Version" />
+      <item itemvalue="JUnit.castle.comp3021.assignment.mock in COMP3021-2020Fall-PA1-Student-Version" />
+      <item itemvalue="JUnit.castle.comp3021.assignment.util in COMP3021-2020Fall-PA1-Student-Version" />
     </list>
     <recent_temporary>
       <list>
@@ -551,7 +554,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601571414268</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="remove redundant statements">
+      <created>1601630370567</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1601630370567</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -583,7 +593,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="clear specification on winning condition" />
     <MESSAGE value="fix: typo in tests" />
     <MESSAGE value="fix failed tests" />
     <MESSAGE value="clarify updateScore" />
@@ -608,7 +617,8 @@
     <MESSAGE value="changed nextMove() in RandomPlayer.java" />
     <MESSAGE value="fix createGame() and nextMove()" />
     <MESSAGE value="fix code style" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix code style" />
+    <MESSAGE value="remove redundant statements" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove redundant statements" />
   </component>
   <component name="WindowStateProjectService">
     <state x="375" y="105" key="#Project_Structure" timestamp="1601374216578">
@@ -643,28 +653,28 @@
     <state x="310" y="126" width="1577" height="832" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601570435110" />
     <state x="165" y="93" key="DiffContextDialog/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620432334" />
     <state x="165" y="93" width="1344" height="840" key="DiffContextDialog/624.-1057.1920.1057/43.0.1637.1050/-1296.-1057.1920.1057@43.0.1637.1050" timestamp="1600435910952" />
-    <state width="1679" height="399" key="GridCell.Tab.0.bottom" timestamp="1601571453998">
+    <state width="1741" height="411" key="GridCell.Tab.0.bottom" timestamp="1601639901543">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1679" height="399" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601571453998" />
+    <state width="1741" height="411" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601639901543" />
     <state width="1638" height="284" key="GridCell.Tab.0.bottom/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620487809" />
     <state width="1638" height="284" key="GridCell.Tab.0.bottom/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1599628349154" />
-    <state width="1679" height="399" key="GridCell.Tab.0.center" timestamp="1601571453998">
+    <state width="1741" height="411" key="GridCell.Tab.0.center" timestamp="1601639901543">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1679" height="399" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601571453998" />
+    <state width="1741" height="411" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601639901543" />
     <state width="1638" height="284" key="GridCell.Tab.0.center/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620487801" />
     <state width="1638" height="284" key="GridCell.Tab.0.center/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1599628349152" />
-    <state width="1679" height="399" key="GridCell.Tab.0.left" timestamp="1601571453998">
+    <state width="1741" height="411" key="GridCell.Tab.0.left" timestamp="1601639901543">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1679" height="399" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601571453998" />
+    <state width="1741" height="411" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601639901543" />
     <state width="1638" height="284" key="GridCell.Tab.0.left/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620487798" />
     <state width="1638" height="284" key="GridCell.Tab.0.left/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1599628349151" />
-    <state width="1679" height="399" key="GridCell.Tab.0.right" timestamp="1601571453998">
+    <state width="1741" height="411" key="GridCell.Tab.0.right" timestamp="1601639901543">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1679" height="399" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601571453998" />
+    <state width="1741" height="411" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601639901543" />
     <state width="1638" height="284" key="GridCell.Tab.0.right/1680.-659.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1599620487804" />
     <state width="1638" height="284" key="GridCell.Tab.0.right/624.-1080.1920.1080/0.0.1680.1050/-1296.-1080.1920.1080@0.0.1680.1050" timestamp="1599628349153" />
     <state x="328" y="106" key="SettingsEditor" timestamp="1601214074000">
@@ -699,10 +709,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="245" y="189" key="new project wizard/0.0.1680.1050@0.0.1680.1050" timestamp="1599978032620" />
-    <state x="682" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1601559194799">
+    <state x="682" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1601641399975">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="682" y="228" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1601559194799" />
+    <state x="682" y="228" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1601641399975" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/COMP3021_2020Fall_PA1_Student_Version$Test.ic" NAME="Test Coverage Results" MODIFIED="1601570961875" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

@@ -1,5 +1,6 @@
 package castle.comp3021.assignment;
 
+import castle.comp3021.assignment.piece.Archer;
 import castle.comp3021.assignment.piece.Knight;
 import castle.comp3021.assignment.protocol.*;
 import org.jetbrains.annotations.NotNull;
@@ -195,6 +196,113 @@ public class JesonMor extends Game {
                 }
             }
         }
+
+        for (int x=availableMove.size()-1; x>=0; x--){
+            var originalX = availableMove.get(x).getSource().x();
+            var originalY = availableMove.get(x).getSource().y();
+            var destinationX = availableMove.get(x).getDestination().x();
+            var destinationY = availableMove.get(x).getDestination().y();
+
+            //validate the move
+            //out of boundary
+            if (originalX<0
+                    ||originalY<0
+                    ||originalX>=this.getConfiguration().getSize()
+                    ||originalY>=this.getConfiguration().getSize()
+                    || destinationX<0
+                    || destinationY<0
+                    || destinationX>=this.getConfiguration().getSize()
+                    || destinationY>=this.getConfiguration().getSize()){
+                availableMove.remove(x);
+                continue;
+            }
+
+            //check any piece at original location
+            if (this.getPiece(originalX, originalY) == null){
+                availableMove.remove(x);
+                continue;
+            }
+
+            //check capturing own piece
+            if (this.getPiece(destinationX, destinationY) != null){
+                if (this.getPiece(destinationX, destinationY).getPlayer()
+                        .equals(this.getPiece(originalX, originalY).getPlayer())){
+                    availableMove.remove(x);
+                    continue;
+                }
+            }
+
+            var xShift = destinationX - originalX;
+            var yShift = destinationY - originalY;
+            if (this.getPiece(originalX, originalY) instanceof Knight){
+                //check moving rule of Knight
+                if (Math.abs(xShift) == 2 && Math.abs(yShift) == 1){
+                    var legPosX = (destinationX + originalX)/2;
+                    var legPosY = originalY;
+                    if (this.getPiece(legPosX,legPosY) != null){
+                        availableMove.remove(x);
+                        continue;
+                    }
+                }else if (Math.abs(xShift) == 1 && Math.abs(yShift) == 2){
+                    var legPosX = originalX;
+                    var legPosY = (destinationY + originalY)/2;
+                    if (this.getPiece(legPosX,legPosY) != null){
+                        availableMove.remove(x);
+                        continue;
+                    }
+                }else{
+                    availableMove.remove(x);
+                    continue;
+                }
+            }else if(this.getPiece(originalX, originalY) instanceof Archer){
+                //check archer
+                //check moving rule of archer
+                if (Math.abs(xShift) > 0 && Math.abs(yShift) > 0){
+                    availableMove.remove(x);
+                    continue;
+                }
+                var numPiecebetween = 0;
+                if (xShift<0 && yShift==0){
+                    for (int i=originalX-1; i>destinationX; i--){
+                        if (this.getPiece(i,originalY) != null){
+                            numPiecebetween += 1;
+                        }
+                    }
+                }else if(xShift>0 && yShift==0){
+                    for (int i=originalX+1; i<destinationX; i++){
+                        if (this.getPiece(i,originalY) != null){
+                            numPiecebetween += 1;
+                        }
+                    }
+                }else if (xShift==0 && yShift<0){
+                    for (int i=originalY-1; i>destinationY; i--){
+                        if (this.getPiece(originalX,i) != null){
+                            numPiecebetween += 1;
+                        }
+                    }
+                }else if (xShift==0 && yShift>0){
+                    for (int i=originalY+1; i<destinationY; i++){
+                        if (this.getPiece(originalX,i) != null){
+                            numPiecebetween += 1;
+                        }
+                    }
+                }else{
+                    availableMove.remove(x);
+                    continue;
+                }
+
+                if (numPiecebetween >= 2){
+                    availableMove.remove(x);
+                    continue;
+                }else if (numPiecebetween == 1
+                        && this.getPiece(destinationX,destinationY).getPlayer()
+                        .equals(this.getPiece(originalX, originalY).getPlayer())){
+                    availableMove.remove(x);
+                    continue;
+                }
+            }
+        }
+
         return availableMove.toArray(new Move[availableMove.size()]);
     }
 }

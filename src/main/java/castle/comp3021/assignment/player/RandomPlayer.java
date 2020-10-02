@@ -1,5 +1,6 @@
 package castle.comp3021.assignment.player;
 
+import castle.comp3021.assignment.piece.Archer;
 import castle.comp3021.assignment.piece.Knight;
 import castle.comp3021.assignment.protocol.Game;
 import castle.comp3021.assignment.protocol.Color;
@@ -39,48 +40,103 @@ public class RandomPlayer extends Player {
         // TODO student implementation
         Move chosenMove = null;
         while(chosenMove == null) {
-            Move tempchosenMove = availableMoves[new Random().nextInt(availableMoves.length)];
+            Move tempMove = availableMoves[new Random().nextInt(availableMoves.length)];
 
-            var inputsourceX = tempchosenMove.getSource().x();
-            var inputsourceY = tempchosenMove.getSource().y();
-            var inputdesX = tempchosenMove.getDestination().x();
-            var inputdesY = tempchosenMove.getDestination().y();
+            var originalX = tempMove.getSource().x();
+            var originalY = tempMove.getSource().y();
+            var destinationX = tempMove.getDestination().x();
+            var destinationY = tempMove.getDestination().y();
 
-            if (inputsourceX < 0
-                    || inputsourceY < 0
-                    || inputsourceX >= game.getConfiguration().getSize()
-                    || inputsourceY >= game.getConfiguration().getSize()
-                    || inputdesX < 0
-                    || inputdesY < 0
-                    || inputdesX >= game.getConfiguration().getSize()
-                    || inputdesY >= game.getConfiguration().getSize()) {
+            //validate the move
+            //out of boundary
+            if (originalX<0
+                    ||originalY<0
+                    ||originalX>=game.getConfiguration().getSize()
+                    ||originalY>=game.getConfiguration().getSize()
+                    || destinationX<0
+                    || destinationY<0
+                    || destinationX>=game.getConfiguration().getSize()
+                    || destinationY>=game.getConfiguration().getSize()){
                 continue;
             }
-            if (game.getPiece(inputdesX, inputdesY) != null) {
-                if (game.getPiece(inputdesX, inputdesY).getPlayer()
-                        .equals(game.getPiece(inputsourceX, inputsourceY).getPlayer())) {
+
+            //check any piece at original location
+            if (game.getPiece(originalX, originalY) == null){
+                continue;
+            }
+
+            //check capturing own piece
+            if (game.getPiece(destinationX, destinationY) != null){
+                if (game.getPiece(destinationX, destinationY).getPlayer()
+                        .equals(game.getPiece(originalX, originalY).getPlayer())){
                     continue;
                 }
             }
 
-            if (game.getPiece(inputsourceX, inputsourceY) == null) {
-                continue;
-            } else if (game.getPiece(inputsourceX, inputsourceY) instanceof Knight) {
-                var xShift = inputdesX - inputsourceX;
-                var yShift = inputdesY - inputsourceY;
-                if (!(xShift == 1 && yShift == 2)
-                        && !(xShift == -1 && yShift == 2)
-                        && !(xShift == 2 && yShift == 1)
-                        && !(xShift == -2 && yShift == 1)
-                        && !(xShift == 2 && yShift == -1)
-                        && !(xShift == -2 && yShift == -1)
-                        && !(xShift == 1 && yShift == -2)
-                        && !(xShift == -1 && yShift == -2)) {
+            var xShift = destinationX - originalX;
+            var yShift = destinationY - originalY;
+            if (game.getPiece(originalX, originalY) instanceof Knight){
+                //check moving rule of Knight
+                if (Math.abs(xShift) == 2 && Math.abs(yShift) == 1){
+                    var legPosX = (destinationX + originalX)/2;
+                    var legPosY = originalY;
+                    if (game.getPiece(legPosX,legPosY) != null){
+                        continue;
+                    }
+                }else if (Math.abs(xShift) == 1 && Math.abs(yShift) == 2){
+                    var legPosX = originalX;
+                    var legPosY = (destinationY + originalY)/2;
+                    if (game.getPiece(legPosX,legPosY) != null){
+                        continue;
+                    }
+                }else{
+                    continue;
+                }
+            }else if(game.getPiece(originalX, originalY) instanceof Archer){
+                //check archer
+                //check moving rule of archer
+                if (Math.abs(xShift) > 0 && Math.abs(yShift) > 0){
+                    continue;
+                }
+                var numPiecebetween = 0;
+                if (xShift<0 && yShift==0){
+                    for (int i=originalX-1; i>destinationX; i--){
+                        if (game.getPiece(i,originalY) != null){
+                            numPiecebetween += 1;
+                        }
+                    }
+                }else if(xShift>0 && yShift==0){
+                    for (int i=originalX+1; i<destinationX; i++){
+                        if (game.getPiece(i,originalY) != null){
+                            numPiecebetween += 1;
+                        }
+                    }
+                }else if (xShift==0 && yShift<0){
+                    for (int i=originalY-1; i>destinationY; i--){
+                        if (game.getPiece(originalX,i) != null){
+                            numPiecebetween += 1;
+                        }
+                    }
+                }else if (xShift==0 && yShift>0){
+                    for (int i=originalY+1; i<destinationY; i++){
+                        if (game.getPiece(originalX,i) != null){
+                            numPiecebetween += 1;
+                        }
+                    }
+                }else{
+                    continue;
+                }
+
+                if (numPiecebetween >= 2){
+                    continue;
+                }else if (numPiecebetween == 1
+                        && game.getPiece(destinationX,destinationY).getPlayer()
+                        .equals(game.getPiece(originalX, originalY).getPlayer())){
                     continue;
                 }
             }
 
-            chosenMove = tempchosenMove;
+            chosenMove = tempMove;
         }
 
         return chosenMove;

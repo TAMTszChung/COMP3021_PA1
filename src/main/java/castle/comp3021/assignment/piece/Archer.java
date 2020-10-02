@@ -49,18 +49,18 @@ public class Archer extends Piece {
         var originalx = source.x();
         var originaly = source.y();
         //right
-        var otherPiece = 0;
+        var numOtherPiece = 0;
         for (int i=originalx+1; i<game.getConfiguration().getSize(); i++){
             if (game.getPiece(i,originaly) != null){
-                otherPiece += 1;
+                numOtherPiece += 1;
             }
-            if (otherPiece == 0){
+            if (numOtherPiece == 0){
                 availableMove.add(new Move(source, new Place(i, originaly)));
-            }else if(otherPiece == 1){
+            }else if(numOtherPiece == 1){
                 continue;
-            }else if(otherPiece == 2){
+            }else if(numOtherPiece == 2){
                 if (game.getPiece(i,originaly) != null
-                        && !game.getPiece(i,originaly).getPlayer().equals(game.getCurrentPlayer())
+                        && !game.getPiece(i,originaly).getPlayer().equals(game.getPiece(originalx,originaly).getPlayer())
                         && game.getNumMoves() >= game.getConfiguration().getNumMovesProtection()){
                     availableMove.add(new Move(source, new Place(i, originaly)));
                 }
@@ -70,17 +70,18 @@ public class Archer extends Piece {
             }
         }
         //left
-        otherPiece = 0;
+        numOtherPiece = 0;
         for (int i=originalx-1; i>=0; i--){
             if (game.getPiece(i,originaly) != null){
-                otherPiece += 1;
+                numOtherPiece += 1;
             }
-            if (otherPiece == 0){
+            if (numOtherPiece == 0){
                 availableMove.add(new Move(source, new Place(i, originaly)));
-            }else if(otherPiece == 1){
+            }else if(numOtherPiece == 1){
                 continue;
-            }else if(otherPiece == 2){
-                if (game.getPiece(i,originaly) != null && !game.getPiece(i,originaly).getPlayer().equals(game.getCurrentPlayer())){
+            }else if(numOtherPiece == 2){
+                if (game.getPiece(i,originaly) != null && !game.getPiece(i,originaly).getPlayer().
+                        equals(game.getPiece(originalx,originaly).getPlayer())){
                     availableMove.add(new Move(source, new Place(i, originaly)));
                 }
                 break;
@@ -89,17 +90,18 @@ public class Archer extends Piece {
             }
         }
         //up
-        otherPiece = 0;
+        numOtherPiece = 0;
         for (int i=originaly+1; i<game.getConfiguration().getSize(); i++){
             if (game.getPiece(originalx,i) != null){
-                otherPiece += 1;
+                numOtherPiece += 1;
             }
-            if (otherPiece == 0){
+            if (numOtherPiece == 0){
                 availableMove.add(new Move(source, new Place(originalx,i)));
-            }else if(otherPiece == 1){
+            }else if(numOtherPiece == 1){
                 continue;
-            }else if(otherPiece == 2){
-                if (game.getPiece(originalx,i) != null && !game.getPiece(originalx,i).getPlayer().equals(game.getCurrentPlayer())){
+            }else if(numOtherPiece == 2){
+                if (game.getPiece(originalx,i) != null && !game.getPiece(originalx,i).getPlayer().
+                        equals(game.getPiece(originalx,originaly).getPlayer())){
                     availableMove.add(new Move(source, new Place(originalx,i)));
                 }
                 break;
@@ -108,22 +110,79 @@ public class Archer extends Piece {
             }
         }
         //down
-        otherPiece = 0;
+        numOtherPiece = 0;
         for (int i=originaly-1; i>=0; i--){
             if (game.getPiece(originalx,i) != null){
-                otherPiece += 1;
+                numOtherPiece += 1;
             }
-            if (otherPiece == 0){
+            if (numOtherPiece == 0){
                 availableMove.add(new Move(source, new Place(originalx,i)));
-            }else if(otherPiece == 1){
+            }else if(numOtherPiece == 1){
                 continue;
-            }else if(otherPiece == 2){
-                if (game.getPiece(originalx,i) != null && !game.getPiece(originalx,i).getPlayer().equals(game.getCurrentPlayer())){
+            }else if(numOtherPiece == 2){
+                if (game.getPiece(originalx,i) != null && !game.getPiece(originalx,i).getPlayer().
+                        equals(game.getPiece(originalx,originaly).getPlayer())){
                     availableMove.add(new Move(source, new Place(originalx,i)));
                 }
                 break;
             }else{
                 break;
+            }
+        }
+
+        for (int x=availableMove.size()-1; x>=0;x--){
+            //check archer
+            //check moving rule of archer
+            var originalX = availableMove.get(x).getSource().x();
+            var originalY = availableMove.get(x).getSource().y();
+            var destinationX = availableMove.get(x).getDestination().x();
+            var destinationY = availableMove.get(x).getDestination().y();
+
+            var xShift = destinationX - originalX;
+            var yShift = destinationY - originalY;
+
+            if (Math.abs(xShift) > 0 && Math.abs(yShift) > 0){
+                availableMove.remove(x);
+                continue;
+            }
+            var numPiecebetween = 0;
+            if (xShift<0 && yShift==0){
+                for (int i=originalX-1; i>destinationX; i--){
+                    if (game.getPiece(i,originalY) != null){
+                        numPiecebetween += 1;
+                    }
+                }
+            }else if(xShift>0 && yShift==0){
+                for (int i=originalX+1; i<destinationX; i++){
+                    if (game.getPiece(i,originalY) != null){
+                        numPiecebetween += 1;
+                    }
+                }
+            }else if (xShift==0 && yShift<0){
+                for (int i=originalY-1; i>destinationY; i--){
+                    if (game.getPiece(originalX,i) != null){
+                        numPiecebetween += 1;
+                    }
+                }
+            }else if (xShift==0 && yShift>0){
+                for (int i=originalY+1; i<destinationY; i++){
+                    if (game.getPiece(originalX,i) != null){
+                        numPiecebetween += 1;
+                    }
+                }
+            }else{
+                availableMove.remove(x);
+                continue;
+            }
+
+            if (numPiecebetween >= 2){
+                availableMove.remove(x);
+                continue;
+            }else if (numPiecebetween == 1
+                    && game.getPiece(destinationX,destinationY).getPlayer()
+                    .equals(game.getPiece(originalX, originalY).getPlayer())){
+                availableMove.remove(x);
+                continue;
             }
         }
         return availableMove.toArray(new Move[availableMove.size()]);
