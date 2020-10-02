@@ -30,19 +30,6 @@ public class Main {
      */
     public static Game createGame(int size, int numMovesProtection) {
         // TODO student implementation
-        if (size < 3){
-            throw new InvalidConfigurationError("size of gameboard must be at least 3");
-        }
-        if (size%2 == 0){
-            throw new InvalidConfigurationError("size of gameboard must be an odd number");
-        }
-        if (size>26){
-            throw new InvalidConfigurationError("size of gameboard is at most 26");
-        }
-        if (numMovesProtection < 0){
-            throw new InvalidConfigurationError("number of moves with capture protection cannot be negative");
-        }
-
         var userPlayer = new ConsolePlayer("White");
         var computerPlayer = new RandomPlayer("Black");
 

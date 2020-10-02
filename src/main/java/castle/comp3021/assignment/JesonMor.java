@@ -95,13 +95,12 @@ public class JesonMor extends Game {
             return lastPlayer;
         }
 
-        Player nextplayer = configuration.getPlayers()[this.numMoves%2];
+        var lastplayerIndex = Arrays.asList(this.configuration.getPlayers()).indexOf(lastPlayer);
+        Player nextplayer = configuration.getPlayers()[(lastplayerIndex+1)%2];
         if (getAvailableMoves(nextplayer).length == 0){
-            if (lastPlayer.getScore() > nextplayer.getScore()){
+            if (lastPlayer.getScore() >= nextplayer.getScore()){
                 return nextplayer;
-            }else if (lastPlayer.getScore() < nextplayer.getScore()){
-                return lastPlayer;
-            }else{
+            }else {
                 return lastPlayer;
             }
         }
