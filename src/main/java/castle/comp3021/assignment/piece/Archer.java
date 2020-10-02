@@ -80,8 +80,9 @@ public class Archer extends Piece {
             }else if(numOtherPiece == 1){
                 continue;
             }else if(numOtherPiece == 2){
-                if (game.getPiece(i,originaly) != null && !game.getPiece(i,originaly).getPlayer().
-                        equals(game.getPiece(originalx,originaly).getPlayer())){
+                if (game.getPiece(i,originaly) != null
+                        && !game.getPiece(i,originaly).getPlayer().equals(game.getPiece(originalx,originaly).getPlayer())
+                        && game.getNumMoves() >= game.getConfiguration().getNumMovesProtection()){
                     availableMove.add(new Move(source, new Place(i, originaly)));
                 }
                 break;
@@ -100,8 +101,9 @@ public class Archer extends Piece {
             }else if(numOtherPiece == 1){
                 continue;
             }else if(numOtherPiece == 2){
-                if (game.getPiece(originalx,i) != null && !game.getPiece(originalx,i).getPlayer().
-                        equals(game.getPiece(originalx,originaly).getPlayer())){
+                if (game.getPiece(originalx,i) != null
+                        && !game.getPiece(originalx,i).getPlayer().equals(game.getPiece(originalx,originaly).getPlayer())
+                        && game.getNumMoves() >= game.getConfiguration().getNumMovesProtection()){
                     availableMove.add(new Move(source, new Place(originalx,i)));
                 }
                 break;
@@ -120,8 +122,9 @@ public class Archer extends Piece {
             }else if(numOtherPiece == 1){
                 continue;
             }else if(numOtherPiece == 2){
-                if (game.getPiece(originalx,i) != null && !game.getPiece(originalx,i).getPlayer().
-                        equals(game.getPiece(originalx,originaly).getPlayer())){
+                if (game.getPiece(originalx,i) != null
+                        && !game.getPiece(originalx,i).getPlayer().equals(game.getPiece(originalx,originaly).getPlayer())
+                        && game.getNumMoves() >= game.getConfiguration().getNumMovesProtection()){
                     availableMove.add(new Move(source, new Place(originalx,i)));
                 }
                 break;
@@ -180,7 +183,8 @@ public class Archer extends Piece {
                 continue;
             }else if (numPiecebetween == 1
                     && game.getPiece(destinationX,destinationY).getPlayer()
-                    .equals(game.getPiece(originalX, originalY).getPlayer())){
+                    .equals(game.getPiece(originalX, originalY).getPlayer())
+                    && game.getNumMoves() < game.getConfiguration().getNumMovesProtection()){
                 availableMove.remove(x);
                 continue;
             }
