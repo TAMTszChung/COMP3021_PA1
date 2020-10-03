@@ -196,7 +196,7 @@ public class ConsolePlayer extends Player {
             }else if (numPiecebetween == 1) {
                 if (desPiece == null) {
                     return false;
-                } else if (desPiece.getPlayer().equals(originPiece)) {
+                } else if (desPiece.getPlayer().equals(originPiece.getPlayer())) {
                     return false;
                 }
             }else{
