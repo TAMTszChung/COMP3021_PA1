@@ -45,6 +45,10 @@ public class Archer extends Piece {
     @Override
     public Move[] getAvailableMoves(Game game, Place source) {
         // TODO student implementation
+        if (source == null){
+            return new Move[0];
+        }
+
         ArrayList<Move> availableMove = new ArrayList<>();
         var originalx = source.x();
         var originaly = source.y();
@@ -64,7 +68,7 @@ public class Archer extends Piece {
             }
         }
 
-        return availableMove.toArray(new Move[availableMove.size()]);
+        return availableMove.toArray(new Move[0]);
     }
 
     private boolean checkMoveValidity(Game game, Move move){
@@ -75,8 +79,6 @@ public class Archer extends Piece {
 
         var gameSize = game.getConfiguration().getSize();
 
-        var xShift = destinationX - originalX;
-        var yShift = destinationY - originalY;
         //out of bound
         if (originalX<0
                 ||originalY<0
@@ -93,15 +95,20 @@ public class Archer extends Piece {
         var desPiece = game.getPiece(destinationX,destinationY);
 
         //no piece at origin
-        if (game.getPiece(originalX,originalY) == null){
+        if (originPiece == null){
             return false;
         }
-
         //check if destination is self
         if (destinationX == originalX && destinationY == originalY){
             return false;
         }
+        //check if wrong source
+        if (!originPiece.equals(this)){
+            return false;
+        }
 
+        var xShift = destinationX - originalX;
+        var yShift = destinationY - originalY;
         //check capturing
         if (desPiece != null){
             if (desPiece.getPlayer().equals(originPiece.getPlayer())){

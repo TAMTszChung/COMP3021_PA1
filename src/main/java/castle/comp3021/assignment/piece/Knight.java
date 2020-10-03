@@ -42,6 +42,10 @@ public class Knight extends Piece {
     @Override
     public Move[] getAvailableMoves(Game game, Place source) {
         // TODO student implementation
+        if (source == null){
+            return new Move[0];
+        }
+
         var sourceX = source.x();
         var sourceY = source.y();
         ArrayList<Move> availableMove = new ArrayList<>();
@@ -95,9 +99,12 @@ public class Knight extends Piece {
         if (originPiece == null){
             return false;
         }
-
         //check if destination is self
         if (destinationX == originalX && destinationY == originalY){
+            return false;
+        }
+        //check if wrong source
+        if (!originPiece.equals(this)){
             return false;
         }
 
