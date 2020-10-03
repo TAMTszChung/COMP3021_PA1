@@ -48,89 +48,14 @@ public class Archer extends Piece {
         ArrayList<Move> availableMove = new ArrayList<>();
         var originalx = source.x();
         var originaly = source.y();
-        //right
-        var numOtherPiece = 0;
-        for (int i=originalx+1; i<game.getConfiguration().getSize(); i++){
-            if (game.getPiece(i,originaly) != null){
-                numOtherPiece += 1;
-            }
-            if (numOtherPiece == 0){
-                availableMove.add(new Move(source, new Place(i, originaly)));
-            }else if(numOtherPiece == 1){
-                continue;
-            }else if(numOtherPiece == 2){
-                if (game.getPiece(i,originaly) != null
-                        && !game.getPiece(i,originaly).getPlayer().equals(game.getPiece(originalx,originaly).getPlayer())
-                        && game.getNumMoves() >= game.getConfiguration().getNumMovesProtection()){
-                    availableMove.add(new Move(source, new Place(i, originaly)));
-                }
-                break;
-            }else{
-                break;
-            }
+        var gameSize = game.getConfiguration().getSize();
+        //add x axis
+        for (int x=0; x<gameSize; x++){
+            availableMove.add(new Move(source, new Place(x, originaly)));
         }
-        //left
-        numOtherPiece = 0;
-        for (int i=originalx-1; i>=0; i--){
-            if (game.getPiece(i,originaly) != null){
-                numOtherPiece += 1;
-            }
-            if (numOtherPiece == 0){
-                availableMove.add(new Move(source, new Place(i, originaly)));
-            }else if(numOtherPiece == 1){
-                continue;
-            }else if(numOtherPiece == 2){
-                if (game.getPiece(i,originaly) != null
-                        && !game.getPiece(i,originaly).getPlayer().equals(game.getPiece(originalx,originaly).getPlayer())
-                        && game.getNumMoves() >= game.getConfiguration().getNumMovesProtection()){
-                    availableMove.add(new Move(source, new Place(i, originaly)));
-                }
-                break;
-            }else{
-                break;
-            }
-        }
-        //up
-        numOtherPiece = 0;
-        for (int i=originaly+1; i<game.getConfiguration().getSize(); i++){
-            if (game.getPiece(originalx,i) != null){
-                numOtherPiece += 1;
-            }
-            if (numOtherPiece == 0){
-                availableMove.add(new Move(source, new Place(originalx,i)));
-            }else if(numOtherPiece == 1){
-                continue;
-            }else if(numOtherPiece == 2){
-                if (game.getPiece(originalx,i) != null
-                        && !game.getPiece(originalx,i).getPlayer().equals(game.getPiece(originalx,originaly).getPlayer())
-                        && game.getNumMoves() >= game.getConfiguration().getNumMovesProtection()){
-                    availableMove.add(new Move(source, new Place(originalx,i)));
-                }
-                break;
-            }else{
-                break;
-            }
-        }
-        //down
-        numOtherPiece = 0;
-        for (int i=originaly-1; i>=0; i--){
-            if (game.getPiece(originalx,i) != null){
-                numOtherPiece += 1;
-            }
-            if (numOtherPiece == 0){
-                availableMove.add(new Move(source, new Place(originalx,i)));
-            }else if(numOtherPiece == 1){
-                continue;
-            }else if(numOtherPiece == 2){
-                if (game.getPiece(originalx,i) != null
-                        && !game.getPiece(originalx,i).getPlayer().equals(game.getPiece(originalx,originaly).getPlayer())
-                        && game.getNumMoves() >= game.getConfiguration().getNumMovesProtection()){
-                    availableMove.add(new Move(source, new Place(originalx,i)));
-                }
-                break;
-            }else{
-                break;
-            }
+        //add y axis
+        for (int y=0; y<gameSize; y++){
+            availableMove.add(new Move(source, new Place(originalx, y)));
         }
 
         for (int x=availableMove.size()-1; x>=0;x--){
@@ -148,40 +73,41 @@ public class Archer extends Piece {
         var destinationX = move.getDestination().x();
         var destinationY = move.getDestination().y();
 
+        var gameSize = game.getConfiguration().getSize();
+
         var xShift = destinationX - originalX;
         var yShift = destinationY - originalY;
-
         //out of bound
         if (originalX<0
                 ||originalY<0
-                ||originalX>=game.getConfiguration().getSize()
-                ||originalY>=game.getConfiguration().getSize()
+                ||originalX>=gameSize
+                ||originalY>=gameSize
                 || destinationX<0
                 || destinationY<0
-                || destinationX>=game.getConfiguration().getSize()
-                || destinationY>=game.getConfiguration().getSize()){
+                || destinationX>=gameSize
+                || destinationY>=gameSize){
             return false;
         }
+
+        var originPiece = game.getPiece(originalX, originalY);
+        var desPiece = game.getPiece(destinationX,destinationY);
 
         //no piece at origin
         if (game.getPiece(originalX,originalY) == null){
             return false;
         }
 
-        //capturing enemy within NumMovesProtection
-        if (game.getPiece(destinationX,destinationY) != null
-                && !game.getPiece(destinationX,destinationY).getPlayer().equals(game.getPiece(originalX,originalY).getPlayer())
-                && game.getNumMoves() < game.getConfiguration().getNumMovesProtection()){
+        //check if destination is self
+        if (destinationX == originalX && destinationY == originalY){
             return false;
         }
 
         //check capturing
-        if (game.getPiece(destinationX,destinationY) != null){
-            if (game.getPiece(destinationX,destinationY).getPlayer().equals(game.getPiece(originalX,originalY).getPlayer())){
+        if (desPiece != null){
+            if (desPiece.getPlayer().equals(originPiece.getPlayer())){
                 //capturing own piece
                 return false;
-            }else if (!game.getPiece(destinationX,destinationY).getPlayer().equals(game.getPiece(originalX,originalY).getPlayer())
-                    && game.getNumMoves() < game.getConfiguration().getNumMovesProtection()){
+            }else if (game.getNumMoves() < game.getConfiguration().getNumMovesProtection()){
                 //capturing enemy within NumMovesProtection
                 return false;
             }
@@ -224,11 +150,15 @@ public class Archer extends Piece {
         }else if (numPiecebetween == 1) {
             if (game.getPiece(destinationX, destinationY) == null) {
                 return false;
-            } else if (game.getPiece(destinationX, destinationY).getPlayer()
-                    .equals(game.getPiece(originalX, originalY).getPlayer())) {
+            } else if (desPiece.getPlayer().equals(originPiece.getPlayer())) {
+                return false;
+            }
+        }else{
+            if (desPiece != null){
                 return false;
             }
         }
+
         return true;
     }
 }

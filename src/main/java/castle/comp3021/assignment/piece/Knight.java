@@ -61,40 +61,52 @@ public class Knight extends Piece {
             }
         }
 
-        return availableMove.toArray(new Move[availableMove.size()]);
+        return availableMove.toArray(new Move[0]);
     }
 
     private boolean checkMoveValidity(Game game, Move move){
+        if (move == null){
+            return false;
+        }
+
         var originalX = move.getSource().x();
         var originalY = move.getSource().y();
         var destinationX = move.getDestination().x();
         var destinationY = move.getDestination().y();
 
+        var gameSize = game.getConfiguration().getSize();
+
         //out of bound
         if (originalX<0
                 ||originalY<0
-                ||originalX>=game.getConfiguration().getSize()
-                ||originalY>=game.getConfiguration().getSize()
+                ||originalX>=gameSize
+                ||originalY>=gameSize
                 || destinationX<0
                 || destinationY<0
-                || destinationX>=game.getConfiguration().getSize()
-                || destinationY>=game.getConfiguration().getSize()){
+                || destinationX>=gameSize
+                || destinationY>=gameSize){
             return false;
         }
+
+        var originPiece = game.getPiece(originalX, originalY);
+        var desPiece = game.getPiece(destinationX,destinationY);
 
         //no piece at origin
-        if (game.getPiece(originalX,originalY) == null){
+        if (originPiece == null){
             return false;
         }
 
+        //check if destination is self
+        if (destinationX == originalX && destinationY == originalY){
+            return false;
+        }
 
         //check capturing
-        if (game.getPiece(destinationX,destinationY) != null){
-            if (game.getPiece(destinationX,destinationY).getPlayer().equals(game.getPiece(originalX,originalY).getPlayer())){
+        if (desPiece != null){
+            if (desPiece.getPlayer().equals(originPiece.getPlayer())){
                 //capturing own piece
                 return false;
-            }else if (!game.getPiece(destinationX,destinationY).getPlayer().equals(game.getPiece(originalX,originalY).getPlayer())
-                    && game.getNumMoves() < game.getConfiguration().getNumMovesProtection()){
+            }else if (game.getNumMoves() < game.getConfiguration().getNumMovesProtection()){
                 //capturing enemy within NumMovesProtection
                 return false;
             }
@@ -119,6 +131,7 @@ public class Knight extends Piece {
             //violate Knight move rule
             return false;
         }
+
         return true;
     }
 }

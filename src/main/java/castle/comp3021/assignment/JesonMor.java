@@ -232,9 +232,6 @@ public class JesonMor extends Game {
 
         var gameSize = this.configuration.getSize();
 
-        var originPiece = this.board[originalX][originalY];
-        var desPiece = this.board[destinationX][destinationY];
-
         //validate the move
         //out of boundary
         if (originalX<0
@@ -248,8 +245,16 @@ public class JesonMor extends Game {
             return false;
         }
 
+        var originPiece = this.board[originalX][originalY];
+        var desPiece = this.board[destinationX][destinationY];
+
         //no piece at origin
         if (originPiece == null){
+            return false;
+        }
+
+        //check if destination is self
+        if (destinationX == originalX && destinationY == originalY){
             return false;
         }
 
@@ -264,7 +269,7 @@ public class JesonMor extends Game {
             if (desPiece.getPlayer().equals(player)){
                 //capturing own piece
                 return false;
-            }else if (this.getNumMoves() < this.getConfiguration().getNumMovesProtection()){
+            }else if (this.getNumMoves() < this.configuration.getNumMovesProtection()){
                 //capturing enemy within NumMovesProtection
                 return false;
             }
@@ -328,8 +333,7 @@ public class JesonMor extends Game {
                 if (desPiece == null){
                     //jump but not capture
                     return false;
-                }else if(desPiece.getPlayer()
-                        .equals(player)){
+                }else if(desPiece.getPlayer().equals(player)){
                     //capture own piece
                     return false;
                 }
