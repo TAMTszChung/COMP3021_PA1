@@ -47,10 +47,9 @@ public class JesonMor extends Game {
             // TODO student implementation starts here
             this.currentPlayer = configuration.getPlayers()[this.numMoves%2];
             Move nextmove = this.currentPlayer.nextMove(this, getAvailableMoves(currentPlayer));
-            movePiece(nextmove);
+            this.movePiece(nextmove);
             Piece currentPiece = this.getPiece(nextmove.getDestination());
-            updateScore(currentPlayer, currentPiece,nextmove);
-            this.numMoves += 1;
+            this.updateScore(currentPlayer, currentPiece,nextmove);
             this.refreshOutput();
             winner = getWinner(currentPlayer,currentPiece,nextmove);
             // student implementation ends here
@@ -79,6 +78,17 @@ public class JesonMor extends Game {
     @Override
     public Player getWinner(Player lastPlayer, Piece lastPiece, Move lastMove) {
         // TODO student implementation
+        //check any null
+        if (lastPlayer == null){
+            return null;
+        }
+        if (lastPiece == null){
+            return null;
+        }
+        if (lastMove == null){
+            return null;
+        }
+        //capturing all piece
         var numenemy = 0;
         for (int i=0; i<this.board.length;i++){
             for (int j=0; j<this.board[i].length; j++){
@@ -109,6 +119,7 @@ public class JesonMor extends Game {
         if (this.numMoves <= this.configuration.getNumMovesProtection()){
             return null;
         }
+
         //win by: leaving central place
         if (lastPiece instanceof Knight && lastMove.getSource().equals(this.configuration.getCentralPlace())){
             return lastPlayer;
@@ -135,12 +146,15 @@ public class JesonMor extends Game {
      */
     public void updateScore(Player player, Piece piece, Move move) {
         // TODO student implementation
+        if (player == null || piece == null || move == null){
+            return;
+        }
         var originalx = move.getSource().x();
         var originaly = move.getSource().y();
         var destinationx = move.getDestination().x();
         var destinationy = move.getDestination().y();
 
-        var movescore = Math.abs((originalx-destinationx)) + Math.abs((originaly-destinationy));
+        var movescore = Math.abs(originalx-destinationx) + Math.abs(originaly-destinationy);
         var newscore = player.getScore() + movescore;
         player.setScore(newscore);
     }
@@ -170,6 +184,7 @@ public class JesonMor extends Game {
 
         board[destinationx][destinationy] = board[originalx][originaly];
         board[originalx][originaly] = null;
+        this.numMoves += 1;
     }
 
     /**
@@ -202,47 +217,54 @@ public class JesonMor extends Game {
             }
         }
 
-        return availableMove.toArray(new Move[availableMove.size()]);
+        return availableMove.toArray(new Move[0]);
     }
 
     private boolean checkMoveValidity(Move move, Player player){
+        if (move == null || player == null){
+            return false;
+        }
+
         var originalX = move.getSource().x();
         var originalY = move.getSource().y();
         var destinationX = move.getDestination().x();
         var destinationY = move.getDestination().y();
 
+        var gameSize = this.configuration.getSize();
+
+        var originPiece = this.board[originalX][originalY];
+        var desPiece = this.board[destinationX][destinationY];
+
         //validate the move
         //out of boundary
         if (originalX<0
                 ||originalY<0
-                ||originalX>=this.getConfiguration().getSize()
-                ||originalY>=this.getConfiguration().getSize()
+                ||originalX>=gameSize
+                ||originalY>=gameSize
                 || destinationX<0
                 || destinationY<0
-                || destinationX>=this.getConfiguration().getSize()
-                || destinationY>=this.getConfiguration().getSize()){
+                || destinationX>=gameSize
+                || destinationY>=gameSize){
             return false;
         }
 
         //no piece at origin
-        if (this.getPiece(originalX, originalY) == null){
+        if (originPiece == null){
             return false;
         }
 
         //check piece belong to player
-        if (!this.getPiece(originalX, originalY).getPlayer().equals(player)){
+        if (!originPiece.getPlayer().equals(player)){
             return false;
         }
 
 
         //check capturing
-        if (this.getPiece(destinationX, destinationY) != null){
-            if (this.getPiece(destinationX, destinationY).getPlayer()
-                    .equals(this.getPiece(originalX, originalY).getPlayer())){
+        if (desPiece != null){
+            if (desPiece.getPlayer().equals(player)){
                 //capturing own piece
                 return false;
-            }else if (!this.getPiece(destinationX,destinationY).getPlayer().equals(this.getPiece(originalX,originalY).getPlayer())
-                    && this.getNumMoves() < this.getConfiguration().getNumMovesProtection()){
+            }else if (this.getNumMoves() < this.getConfiguration().getNumMovesProtection()){
                 //capturing enemy within NumMovesProtection
                 return false;
             }
@@ -250,22 +272,22 @@ public class JesonMor extends Game {
 
         var xShift = destinationX - originalX;
         var yShift = destinationY - originalY;
-        if (this.getPiece(originalX, originalY) instanceof Knight){
+        if (originPiece instanceof Knight){
             //check moving rule of Knight
             if (Math.abs(xShift) == 2 && Math.abs(yShift) == 1){
                 var legPosX = (destinationX + originalX)/2;
-                if (this.getPiece(legPosX,originalY) != null){
+                if (this.board[legPosX][originalY] != null){
                     return false;
                 }
             }else if (Math.abs(xShift) == 1 && Math.abs(yShift) == 2){
                 var legPosY = (destinationY + originalY)/2;
-                if (this.getPiece(originalX,legPosY) != null){
+                if (this.board[originalX][legPosY] != null){
                     return false;
                 }
             }else{
                 return false;
             }
-        }else if(this.getPiece(originalX, originalY) instanceof Archer){
+        }else if(originPiece instanceof Archer){
             //check archer
             //check moving rule of archer
             if (Math.abs(xShift) > 0 && Math.abs(yShift) > 0){
@@ -274,25 +296,25 @@ public class JesonMor extends Game {
             var numPiecebetween = 0;
             if (xShift<0 && yShift==0){
                 for (int i=originalX-1; i>destinationX; i--){
-                    if (this.getPiece(i,originalY) != null){
+                    if (this.board[i][originalY] != null){
                         numPiecebetween += 1;
                     }
                 }
             }else if(xShift>0 && yShift==0){
                 for (int i=originalX+1; i<destinationX; i++){
-                    if (this.getPiece(i,originalY) != null){
+                    if (this.board[i][originalY] != null){
                         numPiecebetween += 1;
                     }
                 }
             }else if (xShift==0 && yShift<0){
                 for (int i=originalY-1; i>destinationY; i--){
-                    if (this.getPiece(originalX,i) != null){
+                    if (this.board[originalX][i] != null){
                         numPiecebetween += 1;
                     }
                 }
             }else if (xShift==0 && yShift>0){
                 for (int i=originalY+1; i<destinationY; i++){
-                    if (this.getPiece(originalX,i) != null){
+                    if (this.board[originalX][i] != null){
                         numPiecebetween += 1;
                     }
                 }
@@ -303,12 +325,16 @@ public class JesonMor extends Game {
             if (numPiecebetween >= 2){
                 return false;
             }else if (numPiecebetween == 1){
-                if (this.getPiece(destinationX,destinationY) == null){
+                if (desPiece == null){
                     //jump but not capture
                     return false;
-                }else if(this.getPiece(destinationX,destinationY).getPlayer()
-                        .equals(this.getPiece(originalX, originalY).getPlayer())){
+                }else if(desPiece.getPlayer()
+                        .equals(player)){
                     //capture own piece
+                    return false;
+                }
+            }else{
+                if (desPiece != null){
                     return false;
                 }
             }
