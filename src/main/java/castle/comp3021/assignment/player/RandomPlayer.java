@@ -42,9 +42,9 @@ public class RandomPlayer extends Player {
         while(chosenMove == null) {
             Move tempMove = availableMoves[new Random().nextInt(availableMoves.length)];
 
-        if (!checkMoveValidity(game, tempMove)){
-            continue;
-        }
+            if (!checkMoveValidity(game, tempMove)){
+                continue;
+            }
 
             chosenMove = tempMove;
         }
@@ -57,37 +57,42 @@ public class RandomPlayer extends Player {
         var originalY = tempMove.getSource().y();
         var destinationX = tempMove.getDestination().x();
         var destinationY = tempMove.getDestination().y();
-
+        var gameSize = game.getConfiguration().getSize();
         //validate the move
         //out of boundary
         if (originalX<0
                 ||originalY<0
-                ||originalX>=game.getConfiguration().getSize()
-                ||originalY>=game.getConfiguration().getSize()
+                ||originalX>=gameSize
+                ||originalY>=gameSize
                 || destinationX<0
                 || destinationY<0
-                || destinationX>=game.getConfiguration().getSize()
-                || destinationY>=game.getConfiguration().getSize()){
+                || destinationX>=gameSize
+                || destinationY>=gameSize){
             return false;
         }
+
+        var originPiece = game.getPiece(originalX, originalY);
+        var desPiece = game.getPiece(destinationX,destinationY);
 
         //no piece at origin
-        if (game.getPiece(originalX, originalY) == null){
+        if (originPiece == null){
             return false;
         }
-
+        //check if destination is self
+        if (destinationX == originalX && destinationY == originalY){
+            return false;
+        }
         //check piece belong to player
-        if (!game.getPiece(originalX, originalY).getPlayer().equals(this)){
+        if (!originPiece.getPlayer().equals(this)){
             return false;
         }
 
         //check capturing
-        if (game.getPiece(destinationX, destinationY) != null){
-            if (game.getPiece(destinationX, destinationY).getPlayer().equals(game.getPiece(originalX, originalY).getPlayer())){
+        if (desPiece != null){
+            if (desPiece.getPlayer().equals(originPiece.getPlayer())){
                 //capturing own piece
                 return false;
-            }else if (!game.getPiece(destinationX,destinationY).getPlayer().equals(game.getPiece(originalX,originalY).getPlayer())
-                    && game.getNumMoves() < game.getConfiguration().getNumMovesProtection()){
+            }else if (game.getNumMoves() < game.getConfiguration().getNumMovesProtection()){
                 //capturing enemy within NumMovesProtection
                 return false;
             }
@@ -150,10 +155,13 @@ public class RandomPlayer extends Player {
             if (numPiecebetween >= 2){
                 return false;
             }else if (numPiecebetween == 1) {
-                if (game.getPiece(destinationX, destinationY) == null) {
+                if (desPiece == null) {
                     return false;
-                } else if (game.getPiece(destinationX, destinationY).getPlayer()
-                        .equals(game.getPiece(originalX, originalY).getPlayer())) {
+                } else if (desPiece.getPlayer().equals(originPiece.getPlayer())) {
+                    return false;
+                }
+            }else{
+                if (desPiece != null){
                     return false;
                 }
             }

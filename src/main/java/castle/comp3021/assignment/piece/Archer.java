@@ -148,7 +148,7 @@ public class Archer extends Piece {
         if (numPiecebetween >= 2){
             return false;
         }else if (numPiecebetween == 1) {
-            if (game.getPiece(destinationX, destinationY) == null) {
+            if (desPiece == null) {
                 return false;
             } else if (desPiece.getPlayer().equals(originPiece.getPlayer())) {
                 return false;

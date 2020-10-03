@@ -48,12 +48,12 @@ public class ConsolePlayer extends Player {
     public @NotNull Move nextMove(Game game, Move[] availableMoves) {
         // TODO student implementation
         Move chosenMove = null;
+        Scanner scanner = new Scanner(System.in);
 
         while (chosenMove == null){
             System.out.print("["+this.name+"]"+" Make a Move: ");
-            Scanner scanner = new Scanner(System.in);
             String userInput = scanner.nextLine();
-            if (!userInput.matches("[ \\t]*[a-zA-Z]{1}[\\d]+[ \\t]*->[ \\t]*[a-zA-Z]{1}[\\d]+[ \\t]*$")){
+            if (!userInput.matches("^\\s*[a-zA-Z]{1}[\\d]+\\s*->\\s*[a-zA-Z]{1}[\\d]+\\s*$")){
                 System.out.println("[Invalid Move]: Incorrect format");
                 continue;
             }
@@ -84,41 +84,47 @@ public class ConsolePlayer extends Player {
         var originalY = tempMove.getSource().y();
         var destinationX = tempMove.getDestination().x();
         var destinationY = tempMove.getDestination().y();
-
+        var gameSize = game.getConfiguration().getSize();
         //validate the move
         //out of boundary
         if (originalX<0
                 ||originalY<0
-                ||originalX>=game.getConfiguration().getSize()
-                ||originalY>=game.getConfiguration().getSize()
+                ||originalX>=gameSize
+                ||originalY>=gameSize
                 || destinationX<0
                 || destinationY<0
-                || destinationX>=game.getConfiguration().getSize()
-                || destinationY>=game.getConfiguration().getSize()){
+                || destinationX>=gameSize
+                || destinationY>=gameSize){
             System.out.println("[Invalid Move]: place is out of boundary of gameboard");
             return false;
         }
 
+        var originPiece = game.getPiece(originalX, originalY);
+        var desPiece = game.getPiece(destinationX,destinationY);
+
         //no piece at origin
-        if (game.getPiece(originalX, originalY) == null){
+        if (originPiece == null){
             System.out.println("[Invalid Move]: No piece at s(" + originalX + ", " + originalY + ")");
             return false;
         }
-
+        //check if destination is self
+        if (destinationX == originalX && destinationY == originalY){
+            System.out.println("[Invalid Move]: piece cannot be captured by another piece belonging to the same player");
+            return false;
+        }
         //check piece belong to player
-        if (!game.getPiece(originalX, originalY).getPlayer().equals(this)){
+        if (!originPiece.getPlayer().equals(this)){
             System.out.println("[Invalid Move]: Piece does not belong to player");
             return false;
         }
 
         //check capturing
-        if (game.getPiece(destinationX, destinationY) != null){
-            if (game.getPiece(destinationX, destinationY).getPlayer().equals(game.getPiece(originalX, originalY).getPlayer())){
+        if (desPiece != null){
+            if (desPiece.getPlayer().equals(originPiece.getPlayer())){
                 //capturing own piece
                 System.out.println("[Invalid Move]: piece cannot be captured by another piece belonging to the same player");
                 return false;
-            }else if (!game.getPiece(destinationX,destinationY).getPlayer().equals(game.getPiece(originalX,originalY).getPlayer())
-                    && game.getNumMoves() < game.getConfiguration().getNumMovesProtection()){
+            }else if (game.getNumMoves() < game.getConfiguration().getNumMovesProtection()){
                 //capturing enemy within NumMovesProtection
                 System.out.println("[Invalid Move]: Cannot capture within NumMovesProtection");
                 return false;
@@ -188,10 +194,13 @@ public class ConsolePlayer extends Player {
                 System.out.println("[Invalid Move]: Archer move rule is violated");
                 return false;
             }else if (numPiecebetween == 1) {
-                if (game.getPiece(destinationX, destinationY) == null) {
+                if (desPiece == null) {
                     return false;
-                } else if (game.getPiece(destinationX, destinationY).getPlayer()
-                        .equals(game.getPiece(originalX, originalY).getPlayer())) {
+                } else if (desPiece.getPlayer().equals(originPiece)) {
+                    return false;
+                }
+            }else{
+                if (desPiece != null){
                     return false;
                 }
             }
