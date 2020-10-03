@@ -133,7 +133,7 @@ public class ConsolePlayer extends Player {
 
         var xShift = destinationX - originalX;
         var yShift = destinationY - originalY;
-        if (game.getPiece(originalX, originalY) instanceof Knight){
+        if (originPiece instanceof Knight){
             //check moving rule of Knight
             if (Math.abs(xShift) == 2 && Math.abs(yShift) == 1){
                 var legPosX = (destinationX + originalX)/2;
@@ -153,7 +153,7 @@ public class ConsolePlayer extends Player {
                 System.out.println("[Invalid Move]: knight move rule is violated");
                 return false;
             }
-        }else if(game.getPiece(originalX, originalY) instanceof Archer){
+        }else if(originPiece instanceof Archer){
             //check archer
             //check moving rule of archer
             if (Math.abs(xShift) > 0 && Math.abs(yShift) > 0){
