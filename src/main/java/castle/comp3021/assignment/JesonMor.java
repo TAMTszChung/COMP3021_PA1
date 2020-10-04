@@ -45,10 +45,10 @@ public class JesonMor extends Game {
         this.refreshOutput();
         while (true) {
             // TODO student implementation starts here
-            this.currentPlayer = configuration.getPlayers()[this.numMoves%2];
+            this.currentPlayer = this.configuration.getPlayers()[this.numMoves%2];
             Move nextmove = this.currentPlayer.nextMove(this, getAvailableMoves(currentPlayer));
+            Piece currentPiece = this.getPiece(nextmove.getSource());
             this.movePiece(nextmove);
-            Piece currentPiece = this.getPiece(nextmove.getDestination());
             this.updateScore(currentPlayer, currentPiece,nextmove);
             this.refreshOutput();
             winner = getWinner(currentPlayer,currentPiece,nextmove);
@@ -119,7 +119,6 @@ public class JesonMor extends Game {
         if (this.numMoves <= this.configuration.getNumMovesProtection()){
             return null;
         }
-
         //win by: leaving central place
         if (lastPiece instanceof Knight && lastMove.getSource().equals(this.configuration.getCentralPlace())){
             return lastPlayer;
@@ -252,12 +251,10 @@ public class JesonMor extends Game {
         if (originPiece == null){
             return false;
         }
-
         //check if destination is self
         if (destinationX == originalX && destinationY == originalY){
             return false;
         }
-
         //check piece belong to player
         if (!originPiece.getPlayer().equals(player)){
             return false;
