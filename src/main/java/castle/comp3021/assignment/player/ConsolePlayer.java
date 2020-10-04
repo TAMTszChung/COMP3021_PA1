@@ -70,6 +70,7 @@ public class ConsolePlayer extends Player {
 
             Move tempMove = new Move(inputoriginalX,inputoriginalY,inputdestinationX,inputdestinationY);
             if (!checkMoveValidity(game, tempMove, availableMoves)){
+                System.out.println("[Invalid Move]: please enter a valid move");
                 continue;
             }
 
@@ -99,7 +100,6 @@ public class ConsolePlayer extends Player {
                 || destinationY<0
                 || destinationX>=gameSize
                 || destinationY>=gameSize){
-            System.out.println("[Invalid Move]: place is out of boundary of gameboard");
             return false;
         }
 
@@ -108,17 +108,14 @@ public class ConsolePlayer extends Player {
 
         //no piece at origin
         if (originPiece == null){
-            System.out.println("[Invalid Move]: No piece at s(" + originalX + ", " + originalY + ")");
             return false;
         }
         //check if destination is self
         if (destinationX == originalX && destinationY == originalY){
-            System.out.println("[Invalid Move]: piece cannot be captured by another piece belonging to the same player");
             return false;
         }
         //check piece belong to player
         if (!originPiece.getPlayer().equals(this)){
-            System.out.println("[Invalid Move]: Piece does not belong to player");
             return false;
         }
 
@@ -126,11 +123,9 @@ public class ConsolePlayer extends Player {
         if (desPiece != null){
             if (desPiece.getPlayer().equals(originPiece.getPlayer())){
                 //capturing own piece
-                System.out.println("[Invalid Move]: piece cannot be captured by another piece belonging to the same player");
                 return false;
             }else if (game.getNumMoves() < game.getConfiguration().getNumMovesProtection()){
                 //capturing enemy within NumMovesProtection
-                System.out.println("[Invalid Move]: Cannot capture within NumMovesProtection");
                 return false;
             }
         }
@@ -143,25 +138,21 @@ public class ConsolePlayer extends Player {
                 var legPosX = (destinationX + originalX)/2;
                 var legPosY = originalY;
                 if (game.getPiece(legPosX,legPosY) != null){
-                    System.out.println("[Invalid Move]: knight is blocked by another piece");
                     return false;
                 }
             }else if (Math.abs(xShift) == 1 && Math.abs(yShift) == 2){
                 var legPosX = originalX;
                 var legPosY = (destinationY + originalY)/2;
                 if (game.getPiece(legPosX,legPosY) != null){
-                    System.out.println("[Invalid Move]: knight is blocked by another piece");
                     return false;
                 }
             }else{
-                System.out.println("[Invalid Move]: knight move rule is violated");
                 return false;
             }
         }else if(originPiece instanceof Archer){
             //check archer
             //check moving rule of archer
             if (Math.abs(xShift) > 0 && Math.abs(yShift) > 0){
-                System.out.println("[Invalid Move]: Archer move rule is violated");
                 return false;
             }
             var numPiecebetween = 0;
@@ -190,24 +181,19 @@ public class ConsolePlayer extends Player {
                     }
                 }
             }else{
-                System.out.println("[Invalid Move]: Archer move rule is violated");
                 return false;
             }
 
             if (numPiecebetween >= 2){
-                System.out.println("[Invalid Move]: Archer move rule is violated");
                 return false;
             }else if (numPiecebetween == 1) {
                 if (desPiece == null) {
-                    System.out.println("[Invalid Move]: Archer move rule is violated");
                     return false;
                 } else if (desPiece.getPlayer().equals(originPiece.getPlayer())) {
-                    System.out.println("[Invalid Move]: Archer move rule is violated");
                     return false;
                 }
             }else{
                 if (desPiece != null){
-                    System.out.println("[Invalid Move]: Archer move rule is violated");
                     return false;
                 }
             }
@@ -215,7 +201,6 @@ public class ConsolePlayer extends Player {
 
         ArrayList<Move> availMoves = new ArrayList<>(Arrays.asList(availableMoves));
         if (!availMoves.contains(tempMove)){
-            System.out.println("[Invalid Move]: please make a valid move");
             return false;
         }
 
