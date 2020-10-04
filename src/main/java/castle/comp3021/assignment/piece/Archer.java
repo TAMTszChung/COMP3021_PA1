@@ -72,6 +72,10 @@ public class Archer extends Piece {
     }
 
     private boolean checkMoveValidity(Game game, Move move){
+        if (game == null || move == null){
+            return false;
+        }
+
         var originalX = move.getSource().x();
         var originalY = move.getSource().y();
         var destinationX = move.getDestination().x();
@@ -107,8 +111,6 @@ public class Archer extends Piece {
             return false;
         }
 
-        var xShift = destinationX - originalX;
-        var yShift = destinationY - originalY;
         //check capturing
         if (desPiece != null){
             if (desPiece.getPlayer().equals(originPiece.getPlayer())){
@@ -120,6 +122,8 @@ public class Archer extends Piece {
             }
         }
 
+        var xShift = destinationX - originalX;
+        var yShift = destinationY - originalY;
         if (Math.abs(xShift) > 0 && Math.abs(yShift) > 0){
             return false;
         }

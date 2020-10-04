@@ -80,6 +80,10 @@ public class ConsolePlayer extends Player {
     }
 
     private boolean checkMoveValidity(Game game, Move tempMove, Move[] availableMoves){
+        if (game == null || tempMove == null || availableMoves==null){
+            return false;
+        }
+
         var originalX = tempMove.getSource().x();
         var originalY = tempMove.getSource().y();
         var destinationX = tempMove.getDestination().x();
@@ -195,12 +199,15 @@ public class ConsolePlayer extends Player {
                 return false;
             }else if (numPiecebetween == 1) {
                 if (desPiece == null) {
+                    System.out.println("[Invalid Move]: Archer move rule is violated");
                     return false;
                 } else if (desPiece.getPlayer().equals(originPiece.getPlayer())) {
+                    System.out.println("[Invalid Move]: Archer move rule is violated");
                     return false;
                 }
             }else{
                 if (desPiece != null){
+                    System.out.println("[Invalid Move]: Archer move rule is violated");
                     return false;
                 }
             }

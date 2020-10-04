@@ -53,6 +53,10 @@ public class RandomPlayer extends Player {
     }
 
     private boolean checkMoveValidity(Game game, Move tempMove){
+        if (game == null || tempMove == null){
+            return false;
+        }
+
         var originalX = tempMove.getSource().x();
         var originalY = tempMove.getSource().y();
         var destinationX = tempMove.getDestination().x();

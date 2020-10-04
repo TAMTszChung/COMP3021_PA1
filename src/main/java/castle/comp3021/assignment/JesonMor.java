@@ -260,7 +260,6 @@ public class JesonMor extends Game {
             return false;
         }
 
-
         //check capturing
         if (desPiece != null){
             if (desPiece.getPlayer().equals(player)){
@@ -278,12 +277,14 @@ public class JesonMor extends Game {
             //check moving rule of Knight
             if (Math.abs(xShift) == 2 && Math.abs(yShift) == 1){
                 var legPosX = (destinationX + originalX)/2;
-                if (this.board[legPosX][originalY] != null){
+                var legPosY = originalY;
+                if (this.board[legPosX][legPosY] != null){
                     return false;
                 }
             }else if (Math.abs(xShift) == 1 && Math.abs(yShift) == 2){
+                var legPosX = originalX;
                 var legPosY = (destinationY + originalY)/2;
-                if (this.board[originalX][legPosY] != null){
+                if (this.board[legPosX][legPosY] != null){
                     return false;
                 }
             }else{

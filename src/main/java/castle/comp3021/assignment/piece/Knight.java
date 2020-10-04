@@ -69,7 +69,7 @@ public class Knight extends Piece {
     }
 
     private boolean checkMoveValidity(Game game, Move move){
-        if (move == null){
+        if (game == null || move == null){
             return false;
         }
 
