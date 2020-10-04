@@ -119,6 +119,23 @@ public class AdditionalTests {
     }
 
     @Test
+    public void moverecordtest0(){
+        var player1 = new MockPlayer(Color.PURPLE);
+        var player2 = new MockPlayer(Color.YELLOW);
+        var record0 = new MoveRecord(player1, new Move(0,0,1,0));
+        var record1 = new MoveRecord(player1, new Move(0,0,1,0));
+        var record2 = new MoveRecord(player2, new Move(0,0,1,0));
+        var record3 = new MoveRecord(player1, new Move(0,0,1,1));
+        var testmove = new Move(0,0,1,0);
+        assertTrue(record0.equals(record0));
+        assertTrue(record0.equals(record1));
+        assertFalse(record0.equals(null));
+        assertFalse(record0.equals(testmove));
+        assertFalse(record0.equals(record2));
+        assertFalse(record0.equals(record3));
+    }
+
+    @Test
     public void testplayer0(){
         var player1 = new MockPlayer(Color.PURPLE);
         var sameplayer = player1.equals(null);
@@ -205,10 +222,35 @@ public class AdditionalTests {
         var beforestartCurrentP = game.getCurrentPlayer();
         var winner = game.start();
         var afterstartCurrentP =game.getCurrentPlayer();
+        var winner2 = game.getWinner(null,knight1,new Move(4, 0, 5, 2));
+        var winner3 = game.getWinner(player1,null,new Move(4, 0, 5, 2));
+        var winner4 = game.getWinner(player1,knight1,null);
 
         assertEquals(player2, beforestartCurrentP);
         assertEquals(player1, afterstartCurrentP);
         assertEquals(player1, winner);
+        assertNull(winner2);
+        assertNull(winner3);
+        assertNull(winner4);
+    }
+
+    @Test
+    public void updatescoretest0(){
+        var player1 = new MockPlayer(Color.PURPLE);
+        var player2 = new MockPlayer(Color.YELLOW);
+        var config = new Configuration(23, new Player[]{player2, player1},1);
+
+        var knight1 = new Knight(player1);
+        var knight2 = new Knight(player2);
+
+        config.addInitialPiece(knight1, 4, 0);
+        config.addInitialPiece(knight2, 0, 6);
+        var game = new JesonMor(config);
+        game.updateScore(null, knight1, new Move(4,0,20,19));
+        game.updateScore(player1, null, new Move(4,0,20,19));
+        game.updateScore(player1, knight1, null);
+        game.updateScore(player1, knight1, new Move(4,0,20,19));
+        assertEquals(35,player1.getScore());
     }
 
     @Test
