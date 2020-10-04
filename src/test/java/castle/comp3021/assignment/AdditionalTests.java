@@ -970,7 +970,6 @@ public class AdditionalTests {
                 };
         Method checkvalidmethod = ConsolePlayer.class.getDeclaredMethod("checkMoveValidity", Game.class, Move.class, Move[].class);
         checkvalidmethod.setAccessible(true);
-        game.refreshOutput();
         var valid1 = (boolean) checkvalidmethod.invoke(player1, game, new Move(5,5,6,7),availMoves);
         var valid2 = (boolean) checkvalidmethod.invoke(player1, game, new Move(5,5,7,6),availMoves);
         var valid3 = (boolean) checkvalidmethod.invoke(player1, game, new Move(5,5,4,3),availMoves);
